@@ -1,0 +1,29 @@
+
+
+\documentclass{article}
+%\documentclass[10.8pt, a4paper, USenglish, twocolumn]{article}
+
+\usepackage{isaks_template} % Contains all included packages. See isaks_template.sty.
+%
+\title{Project Thesis\\Bananas and Troika}
+\author{Isak Hammer }
+\date{\today}
+\begin{document}
+    \begin{titlepage}
+        \maketitle
+        \begin{figure}
+        \centering
+        \includegraphics[width=0.5\textwidth]{figures/front_page/dog.jpg}\\
+        \end{figure}
+        \thispagestyle{empty}
+    \end{titlepage}
+
+    \newpage
+    \label{sec:eyyy}
+
+    \input{introduction}
+    \input{ch1}
+
+    \printbibliography
+
+\end{document}
