@@ -30,4 +30,5 @@ export EDITOR="nvim"
 set -o vi
 export KEYTIMEOUT=1
 alias c="clear"
+alias vim="nvim"
 
