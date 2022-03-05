@@ -61,7 +61,7 @@ Plug 'junegunn/goyo.vim'
 call plug#end()
 
 
-# FUNDAMENTALS
+" FUNDAMENTALS
 
 set go=a
 set mouse=a
@@ -165,5 +165,5 @@ endif
 vnoremap < <gv
 vnoremap > >gv
 
-# GRUVBOX
+" GRUVBOX
 colorscheme gruvbox

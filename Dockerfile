@@ -53,15 +53,20 @@ COPY . .
 RUN pip3 install -r $WORK_DIR/requirements.txt
 RUN echo "source ${WORK_DIR}/common_scripts.sh" >> /root/.bashrc
 
-
+# NEOVIM
 RUN add-apt-repository ppa:neovim-ppa/unstable
 RUN apt-get -y update
 RUN apt-get -y install neovim
 RUN apt-get -y install zathura
 RUN apt-get -y install curl
-
 RUN . vim_setup/generate_vim.sh
 
+# LATEX
+RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
+RUN apt-get upgrade -y
+RUN apt-get install -y latexmk
+RUN apt-get install -y texlive-full
+RUN apt-get install -y biber
 
 
 
