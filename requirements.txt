@@ -1,0 +1,9 @@
+#vim
+pynvim
+neovim
+pyvim
+jedi
+
+# Ultisnip
+unidecode
+
