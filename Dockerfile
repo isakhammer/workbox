@@ -67,5 +67,6 @@ RUN apt-get -y update
 RUN apt-get -y install neovim
 RUN apt-get -y install zathura
 RUN apt-get -y install curl
+RUN apt-get -y install nodejs
 RUN . vim_setup/install_vim.sh
 

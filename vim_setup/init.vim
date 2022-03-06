@@ -375,7 +375,7 @@ let g:AutoPairsShortcutBackInsert = '<M-b>'
 """""""
 " Coc:
 """"""
-source ~/.config/nvim/cocrc.vim
+source ~/code/vim_setup/cocrc.vim
 hi CocInfoFloat guifg=#hex-color guibg=#hex-color
 hi CocWarningFloat guifg=#hex-color guibg=#hex-color
 hi CocHintFloat guifg=#hex-color guibg=#hex-color
