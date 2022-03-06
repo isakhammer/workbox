@@ -1,6 +1,6 @@
 
 function build_container()  {
-  image_name="latex_template"
+  image_name="workbox"
   docker build . -t $image_name
 }
 
