@@ -355,8 +355,8 @@ let g:UltiSnipsJumpBackwardTrigger='<c-z>'
 " let g:UltiSnipsEditSplit="horizontal"
 let g:UltiSnipsEditSplit="context"
 nnoremap <leader>e :UltiSnipsEdit<CR>
-let g:UltiSnipsSnippetsDir="~/code/vim_setup"
-let g:UltiSnipsSnippetDirectories=['~/code/vim_setup']
+let g:UltiSnipsSnippetsDir="~/workbox/vim_setup"
+let g:UltiSnipsSnippetDirectories=['~/workbox/vim_setup']
 
 
 

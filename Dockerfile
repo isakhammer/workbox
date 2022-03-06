@@ -45,8 +45,8 @@ RUN apt-get -y install python3-pip
 RUN /usr/bin/python3.8 -m pip install --upgrade pip
 RUN pip3 install --upgrade pip
 
-RUN mkdir -p $HOME_DIR/code
-ENV WORK_DIR $HOME_DIR/code
+RUN mkdir -p $HOME_DIR/workbox
+ENV WORK_DIR $HOME_DIR/workbox
 WORKDIR $WORK_DIR
 
 COPY . .
