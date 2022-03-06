@@ -45,14 +45,14 @@ RUN apt-get -y install python3-pip
 RUN /usr/bin/python3.8 -m pip install --upgrade pip
 RUN pip3 install --upgrade pip
 
+
 RUN mkdir -p $HOME_DIR/workbox
-ENV WORK_DIR $HOME_DIR/workbox
-WORKDIR $WORK_DIR
+ENV WORKBOX_DIR $HOME_DIR/workbox
+WORKDIR $WORKBOX_DIR
 
 COPY . .
-RUN pip3 install -r $WORK_DIR/requirements.txt
-RUN echo "source ${WORK_DIR}/common_scripts.sh" >> /root/.bashrc
-
+RUN pip3 install -r $WORKBOX_DIR/requirements.txt
+RUN echo "source ${WORKBOX_DIR}/common_scripts.sh" >> /root/.bashrc
 
 # LATEX
 RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
@@ -70,3 +70,7 @@ RUN apt-get -y install curl
 RUN apt-get -y install nodejs
 RUN . vim_setup/install_vim.sh
 
+# For regular code
+RUN mkdir -p $HOME_DIR/code
+ENV WORK_DIR $HOME_DIR/code
+WORKDIR $WORK_DIR
