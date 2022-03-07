@@ -140,7 +140,8 @@ map Q gq
 map <leader>s :!clear && shellcheck %<CR>
 
 " Quickly edit/reload this configggguration file
-nnoremap <leader>se :e $MYVIMRC<CR>
+let $MYVIMRC_PERSONAL = "~/workbox/vim_setup/init.vim"
+nnoremap <leader>se :e $MYVIMRC_PERSONAL<CR>
 nnoremap <leader>so :so $MYVIMRC<CR>
 
 " Fast saving and quitting
@@ -355,8 +356,8 @@ let g:UltiSnipsJumpBackwardTrigger='<c-z>'
 " let g:UltiSnipsEditSplit="horizontal"
 let g:UltiSnipsEditSplit="context"
 nnoremap <leader>e :UltiSnipsEdit<CR>
-let g:UltiSnipsSnippetsDir="~/workbox/vim_setup"
-let g:UltiSnipsSnippetDirectories=['~/workbox/vim_setup']
+let g:UltiSnipsSnippetsDir="~/workbox/vim_setup/UltiSnips"
+let g:UltiSnipsSnippetDirectories=['~/workbox/vim_setup/UltiSnips']
 
 
 
@@ -375,7 +376,7 @@ let g:AutoPairsShortcutBackInsert = '<M-b>'
 """""""
 " Coc:
 """"""
-source ~/code/vim_setup/cocrc.vim
+source ~/workbox/vim_setup/cocrc.vim
 hi CocInfoFloat guifg=#hex-color guibg=#hex-color
 hi CocWarningFloat guifg=#hex-color guibg=#hex-color
 hi CocHintFloat guifg=#hex-color guibg=#hex-color

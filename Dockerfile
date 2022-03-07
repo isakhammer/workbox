@@ -30,6 +30,12 @@ RUN apt-get install -yq build-essential software-properties-common
 RUN apt-get update
 
 # potential dependencies
+RUN apt-get -y install curl
+RUN apt-get -y install dirmngr
+RUN apt-get -y install apt-transport-https lsb-release
+RUN apt-get -y install lsb-release
+RUN apt-get -y install ca-certificates
+RUN apt-get -y install gcc g++ make
 RUN apt-get install -yq git cmake make
 RUN apt-get install -yq bc libblas-dev liblapack-dev
 
@@ -67,7 +73,15 @@ RUN apt-get -y update
 RUN apt-get -y install neovim
 RUN apt-get -y install zathura
 RUN apt-get -y install curl
-RUN apt-get -y install nodejs
+RUN apt-get -y update
+
+ARG NODE_VERSION=16
+RUN apt-get update -y && \
+    apt-get upgrade -y && \
+    apt-get install -y && \
+    curl -sL https://deb.nodesource.com/setup_$NODE_VERSION.x | bash - && \
+    apt-get install -y nodejs
+
 RUN . vim_setup/install_vim.sh
 
 # For regular code
