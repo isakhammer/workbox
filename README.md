@@ -2,7 +2,7 @@
 
 Complete vim environment for latex development in a docker container. 
 
-## Integrations:
+## Main Features:
   - Neovim
   - UltiSnips 
   - Coc
