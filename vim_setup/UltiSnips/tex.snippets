@@ -873,6 +873,12 @@ snippet "dat" "dat" riA
 $1' $0
 endsnippet
 
+# priority 10
+# context "math()"
+# snippet "star" "st*" riA
+# $1^* $0
+# endsnippet
+
 priority 10
 context "math()"
 snippet "Dat" "ddat" riA
@@ -961,10 +967,12 @@ snippet part "d/dx" w
 \frac{\partial ${1}}{\partial  ${2}} $0
 endsnippet
 
-# snippet dell "dx" w
-# \partial $0
-# endsnippet
+context "math()"
+snippet dell "dx" w
+\partial $0
+endsnippet
 
+context "math()"
 snippet der "d/dx" w
 \frac{d ${1}}{d ${2}} $0
 endsnippet
