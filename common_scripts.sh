@@ -1,5 +1,6 @@
 alias p3='python3.8'
 alias python='python3.8'
+
 #shopt
 shopt -s autocd # change to named directory
 shopt -s cdspell # autocorrects cd misspellings
@@ -9,6 +10,7 @@ shopt -s histappend # do not overwrite history
 shopt -s expand_aliases # expand aliases
 
 export EDITOR="nvim"
+export READER="zathura"
 
 # # Short term alias for commands
 # function ppa(){
@@ -31,4 +33,5 @@ set -o vi
 export KEYTIMEOUT=1
 alias c="clear"
 alias vim="nvim"
+alias ls="ls --color=auto"
 
