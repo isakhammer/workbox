@@ -67,11 +67,15 @@ RUN apt-get install -y latexmk
 RUN apt-get install -y texlive-full
 RUN apt-get install -y biber
 
+# Zathura
+RUN apt-get -y install zathura
+RUN mkdir -p ~/.config/zathura
+RUN ln -s $WORKBOX_DIR/zathurarc ~/.config/zathura/zathurarc
+
 # NEOVIM
 RUN add-apt-repository ppa:neovim-ppa/unstable
 RUN apt-get -y update
 RUN apt-get -y install neovim
-RUN apt-get -y install zathura
 RUN apt-get -y install curl
 RUN apt-get -y update
 
