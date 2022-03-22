@@ -38,10 +38,12 @@ RUN apt-get -y install ca-certificates
 RUN apt-get -y install gcc g++ make
 RUN apt-get install -yq git cmake make
 RUN apt-get install -yq bc libblas-dev liblapack-dev
+RUN apt-get install -yq xclip
 
 # Deep bug somwhere when installing matplotlib on ubuntu20
 # https://stackoverflow.com/questions/25674612/ubuntu-14-04-pip-cannot-upgrade-matplotllib
 RUN apt-get install -yq libfreetype6-dev libxft-dev
+
 
 # python3.8
 RUN add-apt-repository -y ppa:deadsnakes/ppa
@@ -88,7 +90,12 @@ RUN apt-get update -y && \
 
 RUN . vim_setup/install_vim.sh
 
+# Paraview
+RUN apt-get install -yq paraview
+
 # For regular code
 RUN mkdir -p $HOME_DIR/code
 ENV WORK_DIR $HOME_DIR/code
 WORKDIR $WORK_DIR
+
+

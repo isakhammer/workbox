@@ -175,12 +175,14 @@ autocmd BufWritePre * %s/\s\+$//e
 set splitright
 
  " Spelling correction when pressing ctrl L
-" setlocal spell
-" hi SpellBad    ctermfg=none      ctermbg=none     cterm=none      guifg=none   guibg=none gui=none
-" set spelllang=en_gb
-" inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+setlocal spell
+hi SpellBad    ctermfg=none      ctermbg=none     cterm=none      guifg=none   guibg=none gui=none
+set spelllang=en_gb
+inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+
  " Spell-check set to <leader>o, 'o' for 'orthography':
-" map <leader>O :setlocal spell! spelllang=en_us<CR>
+"map <leader>O :setlocal spell! spelllang=en_us<CR>
 
 
 "autocmd BufWritepre * %s/\n\+\%$//e
