@@ -7,7 +7,7 @@ The concept is simply that the workbox, which is a docker container with fully i
 
 
 
-## How to run workbox
+## How to run Workbox
 
 Put this into your `.bashrc`, remember to fill in the correct path to workbox repo.
 ```
@@ -15,7 +15,7 @@ alias workbox="bash {$PATH_TO_WORKBOX_REPO}/run_workbox.sh"
 ```
 Now, go into in to any latex workspace folder and run the bash alias `workspace`. The command will now create a docker container which the volume of latex workspace folder is mounted to the container path `/root/code` and similarly the cloned workbox repo volume is mounted to the container path `/root/workbox`, which means if you edit the latex workspace or change the workbox repo inside the container the changes will be synched with the original folder.
 
-## Example of latex compilation
+## Example of Latex Compilation
 
 We now want to compile the already mentioned [template](https://github.com/isakhammer/workbox/tree/master/template). Go into the repo and access the template folder. Now, use the alias by writing `workbox`. You will now create a workbox container and be directed to the template folder inside `/root/code`.
 
@@ -26,7 +26,7 @@ We now want to compile the already mentioned [template](https://github.com/isakh
 The latex document should now be compiled.
 
 
-## Build Image locally
+## Build Image Locally
 Make sure you have a linux or mac docker environment installed according to [here](https://docs.docker.com/get-docker/).
 
 To build the workbox, simply clone the repo and run,
@@ -36,7 +36,7 @@ bash build_workbox.sh
 It will now build the docker image with the image name `workbox` in around 15-20 mins. To run it, use the command `workbox local`.
 
 
-## Further notes
+## Further Notes
 - If you want to really exploit this system, please study the setup of [vim_setup](https://github.com/isakhammer/workbox/tree/master/vim_setup),[common_scripts.sh](https://github.com/isakhammer/workbox/blob/master/common_scripts.sh) and the installation procedure in detail. At the moment is it design for my purpose and my needs. However, feel free to fork the project and make your own. 
 - At the moment is my [tex snippets](https://github.com/isakhammer/workbox/blob/master/vim_setup/UltiSnips/tex.snippets) taking advantage of my norwegian keyboard usingletters`øæå` as aliases for very common snippets. 
 - I am working towards on making this to a multi-purpose workbox with basic packages used in scientific programming.
