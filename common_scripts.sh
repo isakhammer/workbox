@@ -12,6 +12,7 @@ shopt -s expand_aliases # expand aliases
 export EDITOR="nvim"
 export READER="zathura"
 
+
 # # Short term alias for commands
 # function ppa(){
 # 	mkdir -p ~/.cache/ppa
@@ -36,3 +37,4 @@ alias vim="nvim"
 alias ls="ls --color=auto"
 alias zathura_bg="zathura main.pdf &>/dev/null &"
 
+alias juplab="jupyter-lab --ip 0.0.0.0 --port 8888 --allow-root"

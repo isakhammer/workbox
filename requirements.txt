@@ -7,3 +7,10 @@ jedi
 # Ultisnip
 unidecode
 
+# Other useful stuff
+numpy
+matplotlib
+scipy
+jupyter
+jupyterlab
+webgui_jupyter_widgets

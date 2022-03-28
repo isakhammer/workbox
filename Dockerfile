@@ -53,14 +53,27 @@ RUN apt-get -y install python3-pip
 RUN /usr/bin/python3.8 -m pip install --upgrade pip
 RUN pip3 install --upgrade pip
 
-
+# Create workbox folder
 RUN mkdir -p $HOME_DIR/workbox
 ENV WORKBOX_DIR $HOME_DIR/workbox
 WORKDIR $WORKBOX_DIR
 
+# INSTALL WORKBOX
 COPY . .
 RUN pip3 install -r $WORKBOX_DIR/requirements.txt
 RUN echo "source ${WORKBOX_DIR}/common_scripts.sh" >> /root/.bashrc
+
+# Jupyter
+RUN jupyter nbextension install --user --py widgetsnbextension
+RUN jupyter nbextension enable --user --py widgetsnbextension
+RUN jupyter nbextension install --user --py webgui_jupyter_widgets
+RUN jupyter nbextension enable --user --py webgui_jupyter_widgets
+
+# Standard ngsolve
+RUN apt-add-repository universe
+RUN add-apt-repository ppa:ngsolve/ngsolve
+RUN apt-get update
+RUN apt-get install -yq ngsolve
 
 # LATEX
 RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
@@ -69,10 +82,14 @@ RUN apt-get install -y latexmk
 RUN apt-get install -y texlive-full
 RUN apt-get install -y biber
 
+
 # Zathura
 RUN apt-get -y install zathura
 RUN mkdir -p ~/.config/zathura
 RUN ln -s $WORKBOX_DIR/zathurarc ~/.config/zathura/zathurarc
+
+# Tmux
+RUN apt-get install -yq tmux
 
 # NEOVIM
 RUN add-apt-repository ppa:neovim-ppa/unstable
