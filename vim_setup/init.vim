@@ -16,8 +16,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.local/lib/fzf', 'do': './install --all' } " Py
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-rooter'
 Plug 'kien/ctrlp.vim'
-" Plug 'puremourning/vimspector'
-
 
 " Speed
 Plug 'unblevable/quick-scope'
@@ -29,14 +27,16 @@ Plug 'Raimondi/delimitMate'
 Plug 'preservim/nerdtree'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'nelstrom/vim-visual-star-search'
-" Plug 'rhysd/clever-f.vim'
-" Plug 'metakirby5/codi.vim'
 Plug 'godlygeek/tabular'
 Plug 'fholgado/minibufexpl.vim'
 
 " Auto completion
 Plug 'davidhalter/jedi'
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Npm
+
+# Workflow
+Plug 'jpalardy/vim-slime'
+Plug 'mroavi/vim-julia-cell', { 'for': 'julia' }
 
 " Latex
 Plug 'SirVer/ultisnips' " Python3
@@ -52,27 +52,11 @@ Plug 'mhinz/vim-startify'
 Plug 'bling/vim-airline'
 Plug 'morhetz/gruvbox'
 Plug 'junegunn/goyo.vim'
-" Plug 'vimwiki/vimwiki'
 Plug 'kovetskiy/sxhkd-vim'
-Plug 'jpalardy/vim-slime'
 Plug 'JuliaEditorSupport/julia-vim'
 Plug 'kassio/neoterm'
 call plug#end()
-"""
-" Vimspector
-"""
-" let g:vimspector_enable_mappings = 'HUMAN'
-" packadd! vimspector
 
-
-" mnemonic 'di' = 'debug inspect' (pick your own, if you prefer!)
-
-" for normal mode - the word under the cursor
-nmap <Leader>di <Plug>VimspectorBalloonEval
-" for visual mode, the visually selected text
-xmap <Leader>di <Plug>VimspectorBalloonEval
-nmap <LocalLeader><F11> <Plug>VimspectorUpFrame
-nmap <LocalLeader><F12> <Plug>VimspectorDownFrame
 
 """""""
 " GRUVBOX
@@ -386,6 +370,8 @@ let g:airline_section_y = airline#section#create_right(['coc_status','ffenc'])
 "------------------------------------------------------------------------------
 let g:slime_target = 'tmux'
 let g:slime_paste_file = "/root/.slime_paste"
+autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
+
 
 " let g:slime_default_config = {"socket_name": "default", "target_pane": "{right-of}"}
 let g:slime_dont_ask_default = 1
