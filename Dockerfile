@@ -98,7 +98,7 @@ RUN . vim_setup/install_vim.sh
 RUN apt-get install -yq paraview
 
 # Julia
-RUN apt-get install julia
+RUN apt-get install -yq julia
 RUN julia requirements.jl
 
 # For regular code
