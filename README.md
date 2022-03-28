@@ -1,5 +1,5 @@
 # Workbox
-Complete ubuntu and vim environment for latex development in a docker container based on this fantastic (blog)[https://castel.dev/post/lecture-notes-1/] based on (Gilles Castels work)https://github.com/gillescastel. 
+Complete ubuntu and vim environment for latex development in a docker container based on this fantastic [blog](https://castel.dev/post/lecture-notes-1/) based on [Gilles Castels work](https://github.com/gillescastel). 
 
 For quite some time have I been struggling with annoyance of random issues that pop up in terms of my vim and latex environment during my master thesis. I realized that installing everything once at the host operating system and fix things on the go was risky since I could not guarantee a stable system during the critical time period when writing and compiling my thesis. Therefore, I now created a workbox inside a docker container with every installation I need which makes is easy to install, write, compile and reproduce any errors.
 
@@ -12,7 +12,7 @@ To build the workbox, simply clone the repo and run,
 ```
 bash build_workbox.sh
 ```
-It will now build the docker image with the image name `workbox`.
+It will now build the docker image with the image name `workbox` in around 15-20 mins.
 
 ## How to run workbox
 
