@@ -37,7 +37,7 @@ The latex document should now be compiled.
 - If you want to really exploit this system, please study the setup of [vim_setup](https://github.com/isakhammer/workbox/tree/master/vim_setup),[common_scripts.sh](https://github.com/isakhammer/workbox/blob/master/common_scripts.sh) and the installation procedure in detail. At the moment is it design for my purpose and my needs. However, feel free to fork the project and make your own. 
 - At the moment is my [tex snippets](https://github.com/isakhammer/workbox/blob/master/vim_setup/UltiSnips/tex.snippets) taking advantage of my norwegian keyboard usingletters`øæå` as aliases for very common snippets. 
 - I am working towards on making this to a multi-purpose workbox with basic packages used in scientific programming.
-- Feel free sending issues. However, at the moment is this workbox specialized towards my work, but it is probably useful as a inspiration.
+- Feel free sending issues. However, at the moment is this workbox specialized towards my work, but it is probably useful as an inspiration.
 
 
 ## Main Features:
