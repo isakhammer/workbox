@@ -1,6 +1,7 @@
 using Pkg
 Pkg.add("DifferentialEquations")
 Pkg.add("Plots")
+Pkg.add("PackageCompiler")
 Pkg.add("Revise")
 Pkg.add("OhMyREPL")
 Pkg.add("Gridap")
