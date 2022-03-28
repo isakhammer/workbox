@@ -19,7 +19,7 @@ Now, go into in to any latex workspace folder and run the bash alias `workspace`
 
 We now want to compile the already mentioned [template](https://github.com/isakhammer/workbox/tree/master/template). Go into the repo and access the template folder. Now, use the alias by writing `workbox`. You will now create a workbox container and be directed to the template folder inside `/root/code`.
 
-  1) To compile the latex documents, first run zathura inside `/root/code` using the command `zathura_bg` (the command is defined in the alias [here] (https://github.com/isakhammer/workbox/edit/master/common_scripts.sh)) to open the `main.pdf` if it does exist.
+  1) To compile the latex documents, first run zathura inside `/root/code` using the command `zathura_bg` (the command is defined in the alias [here](https://github.com/isakhammer/workbox/edit/master/common_scripts.sh) ) to open the `main.pdf` if it does exist.
 
   2) Now access any `.tex` using vim, for instance `vim main.tex` and to start automatic compilation use the vimtex alias `\ll`(read more at the vimtex documentation [here](https://github.com/lervag/vimtex)). 
 
