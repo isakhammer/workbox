@@ -77,6 +77,7 @@ RUN ln -s $WORKBOX_DIR/zathurarc ~/.config/zathura/zathurarc
 
 # Tmux
 RUN apt-get install -yq tmux
+RUN ln -s $WORKBOX_DIR/tmux.conf ~/.tmux.conf
 
 # NEOVIM
 RUN add-apt-repository ppa:neovim-ppa/unstable
