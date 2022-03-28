@@ -8,19 +8,6 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 ENV HOME_DIR /root
 
-## CREATE A NEW USER WHICH IS NOT ROOT
-#ARG ID=1000
-#ENV USERNAME=kahuna
-#RUN groupadd -g $ID $USERNAME && \
-#    useradd -r -u $ID -m -g $USERNAME -G sudo -s /bin/bash $USERNAME
-#
-#ENV HOME_DIR /home/$USERNAME
-## Set passwords:
-## User: root, Password: $USERNAME
-## User: $USERNAME, Password: $USERNAME
-#RUN echo "root:${USERNAME}" | chpasswd
-#RUN echo "${USERNAME}:${USERNAME}" | chpasswd
-
 # ESSENTIAL
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update
@@ -109,6 +96,10 @@ RUN . vim_setup/install_vim.sh
 
 # Paraview
 RUN apt-get install -yq paraview
+
+# Julia
+RUN apt-get install julia
+RUN julia requirements.jl
 
 # For regular code
 RUN mkdir -p $HOME_DIR/code
