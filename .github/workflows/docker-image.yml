@@ -24,4 +24,4 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag isakhammer/workbox
     - name: Docker push
-      run: docker push isakhammer/workflow
+      run: docker push isakhammer/workbox
