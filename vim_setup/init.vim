@@ -34,7 +34,7 @@ Plug 'fholgado/minibufexpl.vim'
 Plug 'davidhalter/jedi'
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Npm
 
-# Workflow
+" Workflow
 Plug 'jpalardy/vim-slime'
 Plug 'mroavi/vim-julia-cell', { 'for': 'julia' }
 
@@ -369,9 +369,7 @@ let g:airline_section_y = airline#section#create_right(['coc_status','ffenc'])
 " vim slime configuration
 "------------------------------------------------------------------------------
 let g:slime_target = 'tmux'
-let g:slime_paste_file = "/root/.slime_paste"
 autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
-
 
 " let g:slime_default_config = {"socket_name": "default", "target_pane": "{right-of}"}
 let g:slime_dont_ask_default = 1
