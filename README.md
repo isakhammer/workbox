@@ -38,10 +38,9 @@ It will now build the docker image with the image name `workbox` in around 15-20
 
 ## Further Notes
 - If you want to really exploit this system, please study the setup of [vim_setup](https://github.com/isakhammer/workbox/tree/master/vim_setup), [common_scripts.sh](https://github.com/isakhammer/workbox/blob/master/common_scripts.sh) and the installation procedure in detail. However, feel free to fork the project and make your own. 
-- At the moment is my [tex snippets](https://github.com/isakhammer/workbox/blob/master/vim_setup/UltiSnips/tex.snippets) taking advantage of my norwegian keyboard usingletters`øæå` as aliases for very common snippets. 
+- At the moment is my [tex snippets](https://github.com/isakhammer/workbox/blob/master/vim_setup/UltiSnips/tex.snippets) taking advantage of my norwegian keyboard using letters `øæå` as aliases for very common snippets. 
 - I am working towards on making this to a multi-purpose workbox with basic packages used in scientific programming.
 - Feel free creating issues! I am happy to help.
-- 
 ## Main Features:
   - Neovim with vimtex environment
   - UltiSnips 
