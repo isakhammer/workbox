@@ -5,14 +5,7 @@ For quite some time have I been struggling with annoyance of random issues that 
 
 The concept is simply that the workbox, which is a docker container with fully installed features, is mounted to your latex workspace repo similar to the given template [here](https://github.com/isakhammer/workbox/tree/master/template) and this workbox repo. It is now possible to easily compile the latex document and have a custom vim setup for everything. In my opionion 
 
-## Installation 
-Make sure you have a linux or mac docker environment installed according to [here](https://docs.docker.com/get-docker/).
 
-To build the workbox, simply clone the repo and run,
-```
-bash build_workbox.sh
-```
-It will now build the docker image with the image name `workbox` in around 15-20 mins.
 
 ## How to run workbox
 
@@ -20,7 +13,16 @@ Put this into your `.bashrc`, remember to fill in the correct path to workbox re
 ```
 alias workbox="bash {$PATH_TO_WORKBOX_REPO}/run_workbox.sh"
 ```
-Now, go into in to any latex workspace folder and run `workspace`. The command will now create a docker container which the volume of latex workspace folder is mounted to the container path `/root/code` and similarly the cloned workbox repo volume is mounted to the container path `/root/workbox`, which means if you edit the latex workspace or change the workbox repo inside the container the changes will be synched with the original folder.
+Now, go into in to any latex workspace folder and run the bash alias `workspace` (for local built image described in next section run `workspace local`). The command will now create a docker container which the volume of latex workspace folder is mounted to the container path `/root/code` and similarly the cloned workbox repo volume is mounted to the container path `/root/workbox`, which means if you edit the latex workspace or change the workbox repo inside the container the changes will be synched with the original folder.
+
+## Build Image locally
+Make sure you have a linux or mac docker environment installed according to [here](https://docs.docker.com/get-docker/).
+
+To build the workbox, simply clone the repo and run,
+```
+bash build_workbox.sh
+```
+It will now build the docker image with the image name `workbox` in around 15-20 mins.
 
 ## Example of latex compilation
 
