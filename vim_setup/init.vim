@@ -320,19 +320,6 @@ if empty(v:servername) && exists('*remote_startserver')
   call remote_startserver('VIM')
 endif
 
-" let g:vimtex_syntax_conceal = {
-"       \ 'accents': 1,
-"       \ 'cites': 1,
-"       \ 'fancy': 1,
-"       \ 'greek': 1,
-"       \ 'math_bounds': 1,
-"       \ 'math_delimiters': 1,
-"       \ 'math_fracs': 1,
-"       \ 'math_super_sub': 1,
-"       \ 'math_symbols': 1,
-"       \ 'sections': 1,
-"       \ 'styles': 1,
-"       \}
 let g:vimtex_syntax_enabled=0
 
 
@@ -390,4 +377,44 @@ nmap <silent> gd <Plug>(coc-definition)
 """""
 call airline#parts#define_function('coc_status', 'coc#status')
 let g:airline_section_y = airline#section#create_right(['coc_status','ffenc'])
+
+
+""""""
+" VIM JULIA
+
+"------------------------------------------------------------------------------
+" vim slime configuration
+"------------------------------------------------------------------------------
+let g:slime_target = 'tmux'
+let g:slime_paste_file = "/root/.slime_paste"
+
+" let g:slime_default_config = {"socket_name": "default", "target_pane": "{right-of}"}
+let g:slime_dont_ask_default = 1
+
+"------------------------------------------------------------------------------
+" julia-cell configuration
+"------------------------------------------------------------------------------
+" Use '##' tags to define cells
+let g:julia_cell_delimit_cells_by = 'tags'
+
+" map <Leader>jr to run entire file
+nnoremap <Leader>jr :JuliaCellRun<CR>
+
+" map <Leader>jc to execute the current cell
+nnoremap <Leader>jc :JuliaCellExecuteCell<CR>
+
+" map <Leader>jC to execute the current cell and jump to the next cell
+nnoremap <Leader>jC :JuliaCellExecuteCellJump<CR>
+
+" map <Leader>jl to clear Julia screen
+nnoremap <Leader>jl :JuliaCellClear<CR>
+
+" map <Leader>jp and <Leader>jn to jump to the previous and next cell header
+nnoremap <Leader>jp :JuliaCellPrevCell<CR>
+nnoremap <Leader>jn :JuliaCellNextCell<CR>
+
+" map <Leader>je to execute the current line or current selection
+nmap <Leader>je <Plug>SlimeLineSend
+xmap <Leader>je <Plug>SlimeRegionSend
+
 

@@ -1,4 +1,4 @@
-IMAGE_NAME="isakhammer/workbox"
+IMAGE_NAME="isakhammer/workbox:latest"
 
 GREEN='\033[0;32m'
 NC='\033[0m' # No Color
@@ -9,20 +9,18 @@ function echo_color {
 }
 
 if [ $# -eq 0 ]; then
-    echo_color "Using docker image: isakhammer/workbox"
+    echo_color "Using docker image: isakhammer/workbox:latest"
 elif [[ $1 == "local" ]]; then
-    echo_color "Using local docker image: workbox"
-    IMAGE_NAME="workbox"
+    echo_color "Using local docker image: workbox:latest"
+    IMAGE_NAME="workbox:latest"
 else
-    echo_color "Uknown argument. Using docker image: isakhammer/workbox"
+    echo_color "Uknown argument. Using docker image: isakhammer/workbox:latest"
 fi
 
 
-IMAGE_NAME=$1
-
 WORKBOX_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 function run_workbox()  {
-  image_name="workbox"
+  image_name=$IMAGE_NAME
   xhost +local:root
   XSOCK=/tmp/.X11-unix
   docker run -it --rm \
