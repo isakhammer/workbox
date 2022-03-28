@@ -13,22 +13,6 @@ export EDITOR="nvim"
 export READER="zathura"
 
 
-# # Short term alias for commands
-# function ppa(){
-# 	mkdir -p ~/.cache/ppa
-# 	touch ~/.cache/ppa/pp
-# 	echo "cd $PWD && python3 $1 || cd -" > ~/.cache/ppa/pp
-# }
-# alias pp="cat ~/.cache/ppa/pp && bash ~/.cache/ppa/pp "
-
-# function ppa1(){
-# 	mkdir -p ~/.cache/ppa
-# 	touch ~/.cache/ppa/pp1
-# 	echo "cd $PWD && python3 $1 || cd -" > ~/.cache/ppa/pp1
-# }
-# alias pp1="cat ~/.cache/ppa/pp1 && bash ~/.cache/ppa/pp1"
-
-
 # vi mode
 set -o vi
 export KEYTIMEOUT=1
@@ -36,5 +20,16 @@ alias c="clear"
 alias vim="nvim"
 alias ls="ls --color=auto"
 alias zathura_bg="zathura main.pdf &>/dev/null &"
+alias so="source ~/.bashrc"
 
 alias juplab="jupyter-lab --ip 0.0.0.0 --port 8888 --allow-root"
+
+function jvim(){
+    tmux new \; \
+    	send-keys "vim $1" Enter \; \
+    	split-window -v \; \
+    	rename-window julia \; \
+    	send-keys "julia" Enter \; \
+    	select-pane -t 0 \;
+}
+
