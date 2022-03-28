@@ -9,7 +9,7 @@ The concept is simply that the workbox, which is a docker container with fully i
 
 ## How to run Workbox
 
-Put this into your `.bashrc`, remember to fill in the correct path to workbox repo.
+Clone repo and put this into your `.bashrc`, remember to fill in the correct path to workbox repo.
 ```
 alias workbox="bash {$PATH_TO_WORKBOX_REPO}/run_workbox.sh"
 ```
