@@ -13,7 +13,7 @@ Clone repo and put this into your `.bashrc`, remember to fill in the correct pat
 ```
 alias workbox="bash {$PATH_TO_WORKBOX_REPO}/run_workbox.sh"
 ```
-Now, go into in to any latex workspace folder and run the bash alias `workspace`. The command will now create a docker container which the volume of latex workspace folder is mounted to the container path `/root/code` and similarly the cloned workbox repo volume is mounted to the container path `/root/workbox`, which means if you edit the latex workspace or change the workbox repo inside the container the changes will be synched with the original folder.
+Now, go into in to any latex workspace folder and run the bash alias `workspace`. The command will now create a docker container which the volume of latex workspace folder is mounted to the container path `/root/code`. Similarly, the cloned workbox repo volume is mounted to the container path `/root/workbox`. This makes is possible to edit any document and still use shortcuts to edit the custom vim settings ([here](https://github.com/isakhammer/workbox/tree/master/vim_setup)) and more inside the same container.
 
 ## Example of Latex Compilation
 
