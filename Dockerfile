@@ -101,6 +101,7 @@ RUN apt-get install -yq paraview
 # Julia
 RUN apt-get install -yq julia
 RUN julia requirements.jl
+RUN ln -s $WORKBOX_DIR/startup.jl ~/.julia/config/startup.jl
 
 # For regular code
 RUN mkdir -p $HOME_DIR/code
