@@ -14,5 +14,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    
+    - name: docker login
+      env:
+        DOCKER_USERNAME: ${{sectrets.DOCKER_USERNAME}}
+        DOCKER_PASSWORD: ${{sectrets.DOCKER_PASSWORD}}
+      run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+      
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
