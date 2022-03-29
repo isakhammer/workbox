@@ -41,11 +41,12 @@ It will now build the docker image with the image name `workbox` in around 15-20
 - At the moment is my [tex snippets](https://github.com/isakhammer/workbox/blob/master/vim_setup/UltiSnips/tex.snippets) taking advantage of my norwegian keyboard using letters `øæå` as aliases for very common snippets. 
 - I am working towards on making this to a multi-purpose workbox with basic packages used in scientific programming.
 - Feel free creating issues! I am happy to help.
+
 ## Main Features:
-  - Neovim with vimtex environment
-  - UltiSnips 
-  - Coc
+  - Neovim with vimtex, UltiSnips with custom tex snippets, Coc  
   - Latexmk
-  - zathura
+  - zathura for pdf viewing
+  - Python3 and julia installed with all packages for basic scientific programming.
+  - Possibility running Jupyter Notebooks
   
   
