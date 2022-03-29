@@ -43,8 +43,8 @@ It will now build the docker image with the image name `workbox` in around 15-20
 - Feel free creating issues! I am happy to help.
 
 ## Main Features:
-  - Neovim with vimtex, UltiSnips with custom tex snippets, Coc  
-  - Latexmk
+  - Neovim with vimtex, UltiSnips with custom tex snippets, coc.nvim for text editing support.  
+  - Fully installed Latexmk compiler and all basic fonts packages via `texlive-full`
   - zathura for pdf viewing
   - Python3 and julia installed with all packages for basic scientific programming.
   - Possibility running Jupyter Notebooks
