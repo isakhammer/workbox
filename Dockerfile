@@ -81,6 +81,8 @@ RUN ln -s $WORKBOX_DIR/tmux.conf ~/.tmux.conf
 
 # Julia
 RUN apt-get install -yq julia
+RUN julia -e 'using Pkg; Pkg.add(["UpdateJulia"])'
+RUN julia -e 'using UpdateJulia; update_julia() '
 RUN julia requirements.jl
 RUN mkdir -p ~/.julia/config
 RUN ln -s $WORKBOX_DIR/startup.jl ~/.julia/config/startup.jl
