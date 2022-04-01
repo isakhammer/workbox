@@ -1,4 +1,5 @@
 using Pkg
+Pkg.add("LanguageServer")
 Pkg.add("DifferentialEquations")
 Pkg.add("Plots")
 Pkg.add("PackageCompiler")
