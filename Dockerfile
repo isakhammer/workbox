@@ -103,6 +103,14 @@ RUN apt-get update -y && \
 
 RUN . vim_setup/install_vim.sh
 
+RUN mkdir -p ~/.config/nvim/ && touch ~/.config/nvim/init.vim && echo "source ~/workbox/vim_setup/init.vim" >> ~/.config/nvim/init.vim
+RUN curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+RUN nvim --headless +PlugInstall +qall
+RUN nvim +'CocInstall -sync coc-julia coc-jedi coc-json' +qall
+RUN nvim +CocUpdateSync +qall
+
+
 # Paraview
 RUN apt-get install -yq paraview
 
