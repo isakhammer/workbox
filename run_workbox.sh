@@ -14,7 +14,10 @@ function run_workbox_jupyter()  {
      -v $HOME/.ssh:/root/.ssh \
      -v $HOME/.Xauthority:/root/.Xauthority \
      -p 8888:8888 \
-     $image_name "$@"
+     $image_name "$@" \
+     /bin/bash -c '
+        jupyter-lab --ip 0.0.0.0 --port 8888 --allow-root
+       '
 }
 
 
