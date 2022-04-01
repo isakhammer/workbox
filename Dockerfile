@@ -79,6 +79,12 @@ RUN ln -s $WORKBOX_DIR/zathurarc ~/.config/zathura/zathurarc
 RUN apt-get install -yq tmux
 RUN ln -s $WORKBOX_DIR/tmux.conf ~/.tmux.conf
 
+# Julia
+RUN apt-get install -yq julia
+RUN julia requirements.jl
+RUN mkdir -p ~/.julia/config
+RUN ln -s $WORKBOX_DIR/startup.jl ~/.julia/config/startup.jl
+
 # NEOVIM
 RUN add-apt-repository ppa:neovim-ppa/unstable
 RUN apt-get -y update
@@ -98,11 +104,6 @@ RUN . vim_setup/install_vim.sh
 # Paraview
 RUN apt-get install -yq paraview
 
-# Julia
-RUN apt-get install -yq julia
-RUN julia requirements.jl
-RUN mkdir -p ~/.julia/config
-RUN ln -s $WORKBOX_DIR/startup.jl ~/.julia/config/startup.jl
 
 # For regular code
 RUN mkdir -p $HOME_DIR/code
