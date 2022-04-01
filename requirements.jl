@@ -2,7 +2,6 @@ using Pkg
 Pkg.add([
 "LanguageServer",
 "DifferentialEquations",
-"Plots",
 "PackageCompiler",
 "Revise",
 "OhMyREPL",
