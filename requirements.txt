@@ -6,6 +6,7 @@ jedi
 
 # file manager
 ranger-fm
+ueberzug
 
 # Ultisnip
 unidecode
