@@ -1,11 +1,16 @@
 # Workbox
-Complete ubuntu and vim environment for latex development in a docker container based on this fantastic [blog](https://castel.dev/post/lecture-notes-1/) based on Gilles Castels [work](https://github.com/gillescastel). 
+Complete docker environment for vim workflow of general latex development inspired by this [blog](https://castel.dev/post/lecture-notes-1/) and basic scientific programming using Python and Julia.
 
 For quite some time have I been struggling with annoyance of random issues that pop up in terms of my vim and latex environment during my master thesis. I realized that installing everything at the host operating system and fix things on the go was risky since I could not guarantee a stable system. Therefore, I now created a workbox inside a docker container with every installation I need, which makes is easy to install, write, compile and reproduce any errors.
 
-The concept is simply that the workbox, which is a docker container with fully installed features, is mounted to your latex workspace repo (workspace similar to the given template [here](https://github.com/isakhammer/workbox/tree/master/template)) and this workbox repo. It is now possible to easily compile the latex document and have a custom vim setup for everything. I can finally write my thesis without being scared that my setup is crashing when I need it the most.
+The concept is simply that the workbox, which is a docker container with fully installed features, is mounted to your workspace repo. It is now possible to easily combine compiling any latex projects, jupyter notebooks, run simulations and use custom vim bindings in one go with exactly the same setup on any linux devices. 
 
-
+## Main Features:
+  - Neovim with vimtex, UltiSnips with custom mathematical tex snippets and coc.nvim.  
+  - Fully installed Latexmk compiler and all basic fonts packages via `texlive-full`
+  - Zathura for pdf viewing and Ranger for file managing. 
+  - Python3 and Julia installed with most packages for basic scientific programming.
+  - Running Jupyter Notebooks
 
 ## How to run Workbox
 
@@ -42,11 +47,5 @@ It will now build the docker image with the image name `workbox` in around 15-20
 - I am working towards on making this to a multi-purpose workbox with basic packages used in scientific programming.
 - Feel free creating issues! I am happy to help.
 
-## Main Features:
-  - Neovim with vimtex, UltiSnips with custom tex snippets, coc.nvim for text editing support.  
-  - Fully installed Latexmk compiler and all basic fonts packages via `texlive-full`
-  - zathura for pdf viewing
-  - Python3 and julia installed with all packages for basic scientific programming.
-  - Possibility running Jupyter Notebooks
   
   
