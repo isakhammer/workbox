@@ -21,15 +21,9 @@ alias vim="nvim"
 alias ls="ls --color=auto"
 alias zathura_bg="zathura main.pdf &>/dev/null &"
 alias so="source ~/.bashrc"
+alias f="fg"
+alias w="cd ~/workbox"
+
 
 alias juplab="jupyter-lab --ip 0.0.0.0 --port 8888 --allow-root"
-
-function jvim(){
-    tmux new \; \
-    	send-keys "vim $1" Enter \; \
-    	split-window -v \; \
-    	rename-window julia \; \
-    	send-keys "julia" Enter \; \
-    	select-pane -t 0 \;
-}
 
