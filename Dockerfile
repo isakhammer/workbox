@@ -87,6 +87,9 @@ RUN julia requirements.jl
 RUN mkdir -p ~/.julia/config
 RUN ln -s $WORKBOX_DIR/startup.jl ~/.julia/config/startup.jl
 
+# Ranger
+RUN ln -s $WORKBOX_DIR/ranger ~/.config/ranger
+
 # NEOVIM
 RUN add-apt-repository ppa:neovim-ppa/unstable
 RUN apt-get -y update
@@ -112,6 +115,7 @@ RUN nvim +CocUpdateSync +qall
 RUN julia --project="/root/.config/coc/extensions/node_modules/coc-julia/server/JuliaLS" --startup-file=no --history-file=no -e "using Pkg; Pkg.instantiate()"
 RUN julia --project="/root/.config/coc/extensions/node_modules/coc-julia/server/compile_env" --startup-file=no --history-file=no -e "using Pkg; Pkg.instantiate()"
 RUN nvim +'CocCommand julia.CompileLanguageServerSysimg' +qall
+
 
 # Paraview
 RUN apt-get install -yq paraview

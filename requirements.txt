@@ -4,6 +4,9 @@ neovim
 pyvim
 jedi
 
+# file manager
+ranger-fm
+
 # Ultisnip
 unidecode
 
@@ -14,3 +17,4 @@ scipy
 jupyter
 jupyterlab
 webgui_jupyter_widgets
+
