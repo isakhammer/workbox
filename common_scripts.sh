@@ -79,7 +79,7 @@ alias sgg="set_git_global_user"
 sps() {
     echo `dirname $PWD` | sed -r 's|/(.)[^/]*|/\1|g'
 }
-PS1='$debian_chroot\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\] $(eval "sps")/\W $(git_prompt)\[\033[00m\]\$ '
+PS1="$debian_chroot\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\] $(eval "sps")/\W \[\033[00m\]\$"
 
 
 echo "cd ~/code" && cd ~/code
