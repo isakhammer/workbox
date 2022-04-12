@@ -38,8 +38,10 @@ To build the workbox, simply clone the repo and run,
 ```
 bash build_workbox.sh
 ```
-It will now build the docker image with the image name `workbox` in around 15-20 mins. To run it, use the command `workbox local`.
-
+It will now build the docker image with  the image name `workbox`. To run it, use the alias mentioned above and add a `local` flag uch that: 
+```
+workbox local
+```
 
 ## Further Notes
 - If you want to really exploit this system, please study the setup of [vim_setup](https://github.com/isakhammer/workbox/tree/master/vim_setup), [common_scripts.sh](https://github.com/isakhammer/workbox/blob/master/common_scripts.sh) and the installation procedure in detail.
