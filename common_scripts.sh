@@ -81,5 +81,4 @@ sps() {
 }
 PS1="$debian_chroot\[\033[03;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\] $(eval "sps")/\W \[\033[00m\]\$"
 
-
 echo "cd ~/code" && cd ~/code

@@ -43,6 +43,7 @@ RUN pip3 install --upgrade pip
 # Create workbox folder
 RUN mkdir -p $HOME_DIR/workbox
 ENV WORKBOX_DIR $HOME_DIR/workbox
+ENV CONFIG_DIR $WORKBOX_DIR/workbox/config
 WORKDIR $WORKBOX_DIR
 
 # INSTALL WORKBOX
@@ -73,11 +74,11 @@ RUN apt-get install -y biber
 # Zathura
 RUN apt-get -y install zathura
 RUN mkdir -p ~/.config/zathura
-RUN ln -s $WORKBOX_DIR/zathurarc ~/.config/zathura/zathurarc
+RUN ln -s $CONFIG_DIR/zathurarc ~/.config/zathura/zathurarc
 
 # Tmux
 RUN apt-get install -yq tmux
-RUN ln -s $WORKBOX_DIR/tmux.conf ~/.tmux.conf
+RUN ln -s $CONFIG_DIR/tmux.conf ~/.tmux.conf
 
 # Julia
 RUN apt-get install -yq julia
@@ -85,10 +86,10 @@ RUN julia -e 'using Pkg; Pkg.add(["UpdateJulia"])'
 RUN julia -e 'using UpdateJulia; update_julia() '
 RUN julia requirements.jl
 RUN mkdir -p ~/.julia/config
-RUN ln -s $WORKBOX_DIR/startup.jl ~/.julia/config/startup.jl
+RUN ln -s $CONFIG_DIR/startup.jl ~/.julia/config/startup.jl
 
 # Ranger
-RUN ln -s $WORKBOX_DIR/ranger ~/.config/ranger
+RUN ln -s $CONFIG_DIR/ranger ~/.config/ranger
 
 # NEOVIM
 RUN add-apt-repository ppa:neovim-ppa/unstable
