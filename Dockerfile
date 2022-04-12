@@ -43,12 +43,13 @@ RUN pip3 install --upgrade pip
 # Create workbox folder
 RUN mkdir -p $HOME_DIR/workbox
 ENV WORKBOX_DIR $HOME_DIR/workbox
-ENV CONFIG_DIR $WORKBOX_DIR/workbox/config
+ENV CONFIG_DIR $WORKBOX_DIR/config
+ENV DEP_DIR $WORKBOX_DIR/dependencies
 WORKDIR $WORKBOX_DIR
 
 # INSTALL WORKBOX
 COPY . .
-RUN pip3 install -r $WORKBOX_DIR/requirements.txt
+RUN pip3 install -r $DEP_DIR/requirements.txt
 RUN echo "source ${WORKBOX_DIR}/common_scripts.sh" >> /root/.bashrc
 
 # Jupyter
@@ -84,7 +85,7 @@ RUN ln -s $CONFIG_DIR/tmux.conf ~/.tmux.conf
 RUN apt-get install -yq julia
 RUN julia -e 'using Pkg; Pkg.add(["UpdateJulia"])'
 RUN julia -e 'using UpdateJulia; update_julia() '
-RUN julia requirements.jl
+RUN julia $DEP_DIR/requirements.jl
 RUN mkdir -p ~/.julia/config
 RUN ln -s $CONFIG_DIR/startup.jl ~/.julia/config/startup.jl
 
@@ -105,7 +106,7 @@ RUN apt-get update -y && \
     curl -sL https://deb.nodesource.com/setup_$NODE_VERSION.x | bash - && \
     apt-get install -y nodejs
 
-RUN mkdir -p ~/.config/nvim/ && touch ~/.config/nvim/init.vim && echo "source ~/workbox/vim_setup/init.vim" >> ~/.config/nvim/init.vim
+RUN mkdir -p ~/.config/nvim/ && touch ~/.config/nvim/init.vim && echo "source ${CONFIG_DIR}/nvim/init.vim" >> ~/.config/nvim/init.vim
 RUN curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
          https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 RUN nvim --headless +PlugInstall +qall
