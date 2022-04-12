@@ -122,8 +122,8 @@ map Q gq
 " Check file in shellcheck:
 map <leader>s :!clear && shellcheck %<CR>
 
-" Quickly edit/reload this configggguration file
-let $MYVIMRC_PERSONAL = "~/workbox/vim_setup/init.vim"
+" Quickly edit/reload this configuration file
+let $MYVIMRC_PERSONAL = "~/workbox/config/nvim/init.vim"
 nnoremap <leader>se :e $MYVIMRC_PERSONAL<CR>
 nnoremap <leader>so :so $MYVIMRC<CR>
 
@@ -327,8 +327,8 @@ let g:UltiSnipsJumpBackwardTrigger='<c-z>'
 " let g:UltiSnipsEditSplit="horizontal"
 let g:UltiSnipsEditSplit="context"
 nnoremap <leader>e :UltiSnipsEdit<CR>
-let g:UltiSnipsSnippetsDir="~/workbox/vim_setup/UltiSnips"
-let g:UltiSnipsSnippetDirectories=['~/workbox/vim_setup/UltiSnips']
+let g:UltiSnipsSnippetsDir="~/workbox/config/nvim/UltiSnips"
+let g:UltiSnipsSnippetDirectories=['~/workbox/config/nvim/UltiSnips']
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -346,7 +346,7 @@ let g:AutoPairsShortcutBackInsert = '<M-b>'
 """""""
 " Coc:
 """"""
-source ~/workbox/vim_setup/cocrc.vim
+source ~/workbox/config/nvim/cocrc.vim
 hi CocInfoFloat guifg=#hex-color guibg=#hex-color
 hi CocWarningFloat guifg=#hex-color guibg=#hex-color
 hi CocHintFloat guifg=#hex-color guibg=#hex-color
