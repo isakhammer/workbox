@@ -43,6 +43,7 @@ RUN pip3 install --upgrade pip
 # Create workbox folder
 RUN mkdir -p $HOME_DIR/workbox
 ENV WORKBOX_DIR $HOME_DIR/workbox
+ENV CONFIG_DIR $WORKBOX_DIR/workbox/config
 WORKDIR $WORKBOX_DIR
 
 # INSTALL WORKBOX
@@ -73,11 +74,22 @@ RUN apt-get install -y biber
 # Zathura
 RUN apt-get -y install zathura
 RUN mkdir -p ~/.config/zathura
-RUN ln -s $WORKBOX_DIR/zathurarc ~/.config/zathura/zathurarc
+RUN ln -s $CONFIG_DIR/zathurarc ~/.config/zathura/zathurarc
 
 # Tmux
 RUN apt-get install -yq tmux
-RUN ln -s $WORKBOX_DIR/tmux.conf ~/.tmux.conf
+RUN ln -s $CONFIG_DIR/tmux.conf ~/.tmux.conf
+
+# Julia
+RUN apt-get install -yq julia
+RUN julia -e 'using Pkg; Pkg.add(["UpdateJulia"])'
+RUN julia -e 'using UpdateJulia; update_julia() '
+RUN julia requirements.jl
+RUN mkdir -p ~/.julia/config
+RUN ln -s $CONFIG_DIR/startup.jl ~/.julia/config/startup.jl
+
+# Ranger
+RUN ln -s $CONFIG_DIR/ranger ~/.config/ranger
 
 # NEOVIM
 RUN add-apt-repository ppa:neovim-ppa/unstable
@@ -93,14 +105,22 @@ RUN apt-get update -y && \
     curl -sL https://deb.nodesource.com/setup_$NODE_VERSION.x | bash - && \
     apt-get install -y nodejs
 
-RUN . vim_setup/install_vim.sh
+RUN mkdir -p ~/.config/nvim/ && touch ~/.config/nvim/init.vim && echo "source ~/workbox/vim_setup/init.vim" >> ~/.config/nvim/init.vim
+RUN curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+RUN nvim --headless +PlugInstall +qall
+RUN nvim +'CocInstall -sync coc-julia coc-jedi coc-json' +qall
+RUN nvim +CocUpdateSync +qall
+
+# coc-julia installation
+RUN julia --project="/root/.config/coc/extensions/node_modules/coc-julia/server/JuliaLS" --startup-file=no --history-file=no -e "using Pkg; Pkg.instantiate()"
+RUN julia --project="/root/.config/coc/extensions/node_modules/coc-julia/server/compile_env" --startup-file=no --history-file=no -e "using Pkg; Pkg.instantiate()"
+RUN nvim +'CocCommand julia.CompileLanguageServerSysimg' +qall
+
 
 # Paraview
 RUN apt-get install -yq paraview
 
-# Julia
-RUN apt-get install -yq julia
-RUN julia requirements.jl
 
 # For regular code
 RUN mkdir -p $HOME_DIR/code
