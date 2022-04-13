@@ -122,8 +122,8 @@ map Q gq
 " Check file in shellcheck:
 map <leader>s :!clear && shellcheck %<CR>
 
-" Quickly edit/reload this configggguration file
-let $MYVIMRC_PERSONAL = "~/workbox/vim_setup/init.vim"
+" Quickly edit/reload this configuration file
+let $MYVIMRC_PERSONAL = "~/workbox/config/nvim/init.vim"
 nnoremap <leader>se :e $MYVIMRC_PERSONAL<CR>
 nnoremap <leader>so :so $MYVIMRC<CR>
 
@@ -327,9 +327,8 @@ let g:UltiSnipsJumpBackwardTrigger='<c-z>'
 " let g:UltiSnipsEditSplit="horizontal"
 let g:UltiSnipsEditSplit="context"
 nnoremap <leader>e :UltiSnipsEdit<CR>
-let g:UltiSnipsSnippetsDir="~/workbox/vim_setup/UltiSnips"
-let g:UltiSnipsSnippetDirectories=['~/workbox/vim_setup/UltiSnips']
-
+let g:UltiSnipsSnippetsDir="~/workbox/config/nvim/UltiSnips"
+let g:UltiSnipsSnippetDirectories=['~/workbox/config/nvim/UltiSnips']
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -347,7 +346,7 @@ let g:AutoPairsShortcutBackInsert = '<M-b>'
 """""""
 " Coc:
 """"""
-source ~/workbox/vim_setup/cocrc.vim
+source ~/workbox/config/nvim/cocrc.vim
 hi CocInfoFloat guifg=#hex-color guibg=#hex-color
 hi CocWarningFloat guifg=#hex-color guibg=#hex-color
 hi CocHintFloat guifg=#hex-color guibg=#hex-color
@@ -363,40 +362,39 @@ let g:airline_section_y = airline#section#create_right(['coc_status','ffenc'])
 
 """"""
 " VIM JULIA
-
 "------------------------------------------------------------------------------
 " vim slime configuration
 "------------------------------------------------------------------------------
-let g:slime_target = 'tmux'
-autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
+" let g:slime_target = 'tmux'
+" autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
 
-" let g:slime_default_config = {"socket_name": "default", "target_pane": "{right-of}"}
-let g:slime_dont_ask_default = 1
+" " let g:slime_default_config = {"socket_name": "default", "target_pane": "{right-of}"}
+" let g:slime_dont_ask_default = 1
 
-"------------------------------------------------------------------------------
-" julia-cell configuration
-"------------------------------------------------------------------------------
-" Use '##' tags to define cells
-let g:julia_cell_delimit_cells_by = 'tags'
+""------------------------------------------------------------------------------
+"" julia-cell configuration
+""------------------------------------------------------------------------------
+"" Use '##' tags to define cells
+"let g:julia_cell_delimit_cells_by = 'tags'
 
-" map <Leader>jr to run entire file
-nnoremap <Leader>jr :JuliaCellRun<CR>
+"" map <Leader>jr to run entire file
+"nnoremap <Leader>jr :JuliaCellRun<CR>
 
-" map <Leader>jc to execute the current cell
-nnoremap <Leader>jc :JuliaCellExecuteCell<CR>
+"" map <Leader>jc to execute the current cell
+"nnoremap <Leader>jc :JuliaCellExecuteCell<CR>
 
-" map <Leader>jC to execute the current cell and jump to the next cell
-nnoremap <Leader>jC :JuliaCellExecuteCellJump<CR>
+"" map <Leader>jC to execute the current cell and jump to the next cell
+"nnoremap <Leader>jC :JuliaCellExecuteCellJump<CR>
 
-" map <Leader>jl to clear Julia screen
-nnoremap <Leader>jl :JuliaCellClear<CR>
+"" map <Leader>jl to clear Julia screen
+"nnoremap <Leader>jl :JuliaCellClear<CR>
 
-" map <Leader>jp and <Leader>jn to jump to the previous and next cell header
-nnoremap <Leader>jp :JuliaCellPrevCell<CR>
-nnoremap <Leader>jn :JuliaCellNextCell<CR>
+"" map <Leader>jp and <Leader>jn to jump to the previous and next cell header
+"nnoremap <Leader>jp :JuliaCellPrevCell<CR>
+"nnoremap <Leader>jn :JuliaCellNextCell<CR>
 
-" map <Leader>je to execute the current line or current selection
-nmap <Leader>je <Plug>SlimeLineSend
-xmap <Leader>je <Plug>SlimeRegionSend
+"" map <Leader>je to execute the current line or current selection
+"nmap <Leader>je <Plug>SlimeLineSend
+"xmap <Leader>je <Plug>SlimeRegionSend
 
 

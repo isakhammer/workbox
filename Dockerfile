@@ -40,23 +40,35 @@ RUN apt-get -y install python3-pip
 RUN /usr/bin/python3.8 -m pip install --upgrade pip
 RUN pip3 install --upgrade pip
 
-# Create workbox folder
+# Create workbox folder and environment variables
 RUN mkdir -p $HOME_DIR/workbox
 ENV WORKBOX_DIR $HOME_DIR/workbox
+ENV CONFIG_DIR $WORKBOX_DIR/config
+ENV DEP_DIR $WORKBOX_DIR/dependencies
 WORKDIR $WORKBOX_DIR
 
 # INSTALL WORKBOX
+
+# Installing the fonts
+RUN mkdir /usr/local/share/fonts/sample
+RUN ln -s $DEP_DIR/JuliaMono-Bold.ttf /usr/local/share/fonts/
+
+# Copy all files from host to container
 COPY . .
-RUN pip3 install -r $WORKBOX_DIR/requirements.txt
+
+# Source common_scripts into .bashrc
 RUN echo "source ${WORKBOX_DIR}/common_scripts.sh" >> /root/.bashrc
 
-# Jupyter
+# installation of python packages
+RUN pip3 install -r $DEP_DIR/requirements.txt
+
+# Jupyter installations
 RUN jupyter nbextension install --user --py widgetsnbextension
 RUN jupyter nbextension enable --user --py widgetsnbextension
 RUN jupyter nbextension install --user --py webgui_jupyter_widgets
 RUN jupyter nbextension enable --user --py webgui_jupyter_widgets
 
-# Standard ngsolve
+# Standard ngsolve installation
 RUN apt-add-repository universe
 RUN add-apt-repository ppa:ngsolve/ngsolve
 RUN apt-get update
@@ -73,22 +85,22 @@ RUN apt-get install -y biber
 # Zathura
 RUN apt-get -y install zathura
 RUN mkdir -p ~/.config/zathura
-RUN ln -s $WORKBOX_DIR/zathurarc ~/.config/zathura/zathurarc
+RUN ln -s $CONFIG_DIR/zathurarc ~/.config/zathura/zathurarc
 
 # Tmux
 RUN apt-get install -yq tmux
-RUN ln -s $WORKBOX_DIR/tmux.conf ~/.tmux.conf
+RUN ln -s $CONFIG_DIR/tmux.conf ~/.tmux.conf
 
 # Julia
 RUN apt-get install -yq julia
 RUN julia -e 'using Pkg; Pkg.add(["UpdateJulia"])'
 RUN julia -e 'using UpdateJulia; update_julia() '
-RUN julia requirements.jl
+RUN julia $DEP_DIR/requirements.jl
 RUN mkdir -p ~/.julia/config
-RUN ln -s $WORKBOX_DIR/startup.jl ~/.julia/config/startup.jl
+RUN ln -s $CONFIG_DIR/startup.jl ~/.julia/config/startup.jl
 
 # Ranger
-RUN ln -s $WORKBOX_DIR/ranger ~/.config/ranger
+RUN ln -s $CONFIG_DIR/ranger ~/.config/ranger
 
 # NEOVIM
 RUN add-apt-repository ppa:neovim-ppa/unstable
@@ -104,7 +116,7 @@ RUN apt-get update -y && \
     curl -sL https://deb.nodesource.com/setup_$NODE_VERSION.x | bash - && \
     apt-get install -y nodejs
 
-RUN mkdir -p ~/.config/nvim/ && touch ~/.config/nvim/init.vim && echo "source ~/workbox/vim_setup/init.vim" >> ~/.config/nvim/init.vim
+RUN mkdir -p ~/.config/nvim/ && touch ~/.config/nvim/init.vim && echo "source ${CONFIG_DIR}/nvim/init.vim" >> ~/.config/nvim/init.vim
 RUN curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
          https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 RUN nvim --headless +PlugInstall +qall
