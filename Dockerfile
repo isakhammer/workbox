@@ -52,6 +52,7 @@ WORKDIR $WORKBOX_DIR
 # Installing the fonts
 RUN mkdir /usr/local/share/fonts/sample
 RUN ln -s $DEP_DIR/JuliaMono-Bold.ttf /usr/local/share/fonts/
+RUN fc-cache -f -v
 
 # Copy all files from host to container
 COPY . .

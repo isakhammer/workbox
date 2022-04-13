@@ -194,12 +194,6 @@ let g:indentLine_char       = '┆'
 let g:indentLine_setConceal = 0
 
 """""""
-" Clever f:
-"""""""
-" map ; <Plug>(clever-f-repeat-forward)
-" map , <Plug>(clever-f-repeat-back)
-
-"""""""
 " GOYO:
 """""""
 " Goyo plugin makes text more readable when writing prose:
@@ -257,13 +251,6 @@ let g:rooter_patterns = ['.git']
 """"""""""""""""""""""""""""""
 
 function EnableAutoSave()
-  " let g:auto_save = 1
-  " let g:auto_save_events = ["InsertLeave", 'TextChanged',"CursorHold", 'CursorHoldI']
-  " let g:auto_save_events = ["InsertLeave", 'TextChanged']
-  " autocmd TextChanged,TextChangedI, InsertLeave <buffer> silent write
-  " autocmd TextChanged, InsertLeave <buffer> silent write
-  " let g:auto_save_silent = 1  " do not display the auto-save notification
-
   autocmd TextChanged,TextChangedI * silent write
 endfunction
 
@@ -359,42 +346,5 @@ nmap <silent> gd <Plug>(coc-definition)
 call airline#parts#define_function('coc_status', 'coc#status')
 let g:airline_section_y = airline#section#create_right(['coc_status','ffenc'])
 
-
-""""""
-" VIM JULIA
-"------------------------------------------------------------------------------
-" vim slime configuration
-"------------------------------------------------------------------------------
-" let g:slime_target = 'tmux'
-" autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
-
-" " let g:slime_default_config = {"socket_name": "default", "target_pane": "{right-of}"}
-" let g:slime_dont_ask_default = 1
-
-""------------------------------------------------------------------------------
-"" julia-cell configuration
-""------------------------------------------------------------------------------
-"" Use '##' tags to define cells
-"let g:julia_cell_delimit_cells_by = 'tags'
-
-"" map <Leader>jr to run entire file
-"nnoremap <Leader>jr :JuliaCellRun<CR>
-
-"" map <Leader>jc to execute the current cell
-"nnoremap <Leader>jc :JuliaCellExecuteCell<CR>
-
-"" map <Leader>jC to execute the current cell and jump to the next cell
-"nnoremap <Leader>jC :JuliaCellExecuteCellJump<CR>
-
-"" map <Leader>jl to clear Julia screen
-"nnoremap <Leader>jl :JuliaCellClear<CR>
-
-"" map <Leader>jp and <Leader>jn to jump to the previous and next cell header
-"nnoremap <Leader>jp :JuliaCellPrevCell<CR>
-"nnoremap <Leader>jn :JuliaCellNextCell<CR>
-
-"" map <Leader>je to execute the current line or current selection
-"nmap <Leader>je <Plug>SlimeLineSend
-"xmap <Leader>je <Plug>SlimeRegionSend
 
 
