@@ -18,13 +18,13 @@ Clone repo and put this into your `.bashrc`, remember to fill in the correct pat
 ```
 alias workbox="bash {$PATH_TO_WORKBOX_REPO}/run_workbox.sh"
 ```
-Now, go into in to any latex workspace folder and run the bash alias `workspace`. The command will now create a docker container which the volume of latex workspace folder is mounted to the container path `/root/code`. Similarly, the cloned workbox repo volume is mounted to the container path `/root/workbox`. This makes is possible to edit any document and still use shortcuts to edit the custom vim settings ([here](https://github.com/isakhammer/workbox/tree/master/vim_setup)) and more inside the same container.
+Now, go into in to any latex workspace folder and run the bash alias `workspace`. The command will now create a docker container which the volume of latex workspace folder is mounted to the container path `/root/code`. Similarly, the cloned workbox repo volume is mounted to the container path `/root/workbox`. This makes is possible to edit any document and still use shortcuts to edit the configs ([here](https://github.com/isakhammer/workbox/tree/master/config)) and more inside the same container.
 
 ## Example of Latex Compilation
 
 We now want to compile the already mentioned [template](https://github.com/isakhammer/workbox/tree/master/template). Go into the repo and access the template folder. Now, use the alias by writing `workbox`. You will now create a workbox container and be directed to the template folder inside `/root/code`.
 
-  1) To compile the latex documents, first run zathura inside `/root/code` using the command `zathura_bg` (the command is defined in the alias [here](https://github.com/isakhammer/workbox/edit/master/common_scripts.sh) ) to open the `main.pdf` if it does exist.
+  1) To compile the latex documents, first run zathura inside `/root/code` using the command `zbg` (the alias is defined in the [commons scripts](https://github.com/isakhammer/workbox/blob/master/common_scripts.sh)) to open the `main.pdf`.
 
   2) Now access any `.tex` using vim, for instance `vim main.tex` and to start automatic compilation use the vimtex alias `\ll`(read more at the vimtex documentation [here](https://github.com/lervag/vimtex)). 
 
@@ -44,8 +44,8 @@ workbox local
 ```
 
 ## Further Notes
-- If you want to really exploit this system, please study the setup of [vim_setup](https://github.com/isakhammer/workbox/tree/master/vim_setup), [common_scripts.sh](https://github.com/isakhammer/workbox/blob/master/common_scripts.sh) and the installation procedure in detail.
-- At the moment is my [tex snippets](https://github.com/isakhammer/workbox/blob/master/vim_setup/UltiSnips/tex.snippets) taking advantage of my norwegian keyboard using letters `øæå` as aliases for very common snippets. 
+- If you want to really exploit this system, please study the setup of [config](https://github.com/isakhammer/workbox/tree/master/config), [common_scripts.sh](https://github.com/isakhammer/workbox/blob/master/common_scripts.sh) and the [Dockerfile](https://github.com/isakhammer/workbox/blob/master/Dockerfile) in detail. Most of the configurations are symbolic links to files in `~/.config` inside the container, with some exceptions such as nvim.
+- At the moment is my [tex snippets](https://github.com/isakhammer/workbox/blob/master/config/nvim/UltiSnips/tex.snippets) taking advantage of my norwegian keyboard using letters `øæå` as aliases for common math snippets. Feel free to customize. 
 - I am working towards on making this to a multi-purpose workbox with basic packages used in scientific programming.
 - Feel free creating issues! I am happy to help.
 
