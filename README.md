@@ -1,5 +1,7 @@
 # Workbox
-Complete docker environment for vim workflow of general latex development inspired by this [blog](https://castel.dev/post/lecture-notes-1/) and basic scientific programming using Python and Julia.
+**Multi Purpose Workbox for Scientific Linux Workflow!**
+
+Docker environment for vim workflow of latex development inspired by this [blog](https://castel.dev/post/lecture-notes-1/) and basic scientific programming using Python and Julia.
 
 For quite some time have I been struggling with annoyance of random issues that pop up in terms of my vim and latex environment during my master thesis. I realized that installing everything at the host operating system and fix things on the go was risky since I could not guarantee a stable system. Therefore, I now created a workbox inside a docker container with every installation I need, which makes is easy to install, write, compile and reproduce any errors.
 
