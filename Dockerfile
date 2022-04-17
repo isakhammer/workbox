@@ -49,15 +49,15 @@ WORKDIR $WORKBOX_DIR
 
 # INSTALL WORKBOX
 
+# Copy all files from host to container
+COPY . .
+
 # Installing the fonts
 ### arggh still not able to generate all fonts in julia in vim
 RUN mkdir /usr/local/share/fonts/sample
 RUN ln -s $DEP_DIR/JuliaMono-Regular.ttf /usr/share/fonts/truetype/
 RUN apt-get install -yq fontconfig
 RUN fc-cache -f -v
-
-# Copy all files from host to container
-COPY . .
 
 # Source common_scripts into .bashrc
 RUN echo "source ${WORKBOX_DIR}/common_scripts.sh" >> /root/.bashrc
