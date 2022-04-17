@@ -132,8 +132,8 @@ RUN julia --project="/root/.config/coc/extensions/node_modules/coc-julia/server/
 RUN nvim +'CocCommand julia.CompileLanguageServerSysimg' +qall
 
 
-# Paraview
-RUN apt-get install -yq paraview
+# FEM libraries
+RUN apt-get install -yq paraview gmsh
 
 
 # For regular code
