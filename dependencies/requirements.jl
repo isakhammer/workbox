@@ -13,5 +13,6 @@ Pkg.add([
 "IJulia",
 "Gridap",
 "GridapMakie",
+"GridapGmsh",
 "GLMakie",
 "FileIO"])
