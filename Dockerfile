@@ -49,12 +49,16 @@ WORKDIR $WORKBOX_DIR
 
 # INSTALL WORKBOX
 
+# Copy all files from host to container
+COPY . .
+
 # Installing the fonts
 RUN mkdir /usr/local/share/fonts/sample
 RUN ln -s $DEP_DIR/JuliaMono-Bold.ttf /usr/local/share/fonts/
 
-# Copy all files from host to container
-COPY . .
+RUN ln -s $CONFIG_DIR/neofetch ~/.config/neofetch
+RUN apt-get install -yq neofetch
+
 
 # Source common_scripts into .bashrc
 RUN echo "source ${WORKBOX_DIR}/common_scripts.sh" >> /root/.bashrc
