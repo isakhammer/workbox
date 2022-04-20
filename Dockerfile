@@ -57,8 +57,8 @@ COPY . .
 RUN mkdir /usr/local/share/fonts/sample
 RUN ln -s $DEP_DIR/JuliaMono-Bold.ttf /usr/local/share/fonts/
 
-RUN ln -s $CONFIG_DIR/neofetch ~/.config/neofetch
 RUN apt-get install -yq neofetch
+RUN ln -s $CONFIG_DIR/neofetch ~/.config/neofetch
 
 # Installing the fonts
 ### arggh still not able to generate all fonts in julia in vim
