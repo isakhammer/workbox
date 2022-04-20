@@ -12,6 +12,7 @@ ranger-fm
 unidecode
 
 # Other useful stuff
+python3-xlib
 numpy
 matplotlib
 scipy

@@ -2,6 +2,8 @@ using Pkg
 Pkg.add([
 "LanguageServer",
 "DifferentialEquations",
+"ParameterizedFunctions",
+"PyPlot",
 "PackageCompiler",
 "Revise",
 "OhMyREPL",
@@ -11,5 +13,6 @@ Pkg.add([
 "IJulia",
 "Gridap",
 "GridapMakie",
+"GridapGmsh",
 "GLMakie",
 "FileIO"])

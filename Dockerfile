@@ -27,6 +27,7 @@ RUN apt-get install -yq git cmake make
 RUN apt-get install -yq bc libblas-dev liblapack-dev
 RUN apt-get install -yq xclip
 
+
 # Deep bug somwhere when installing matplotlib on ubuntu20
 # https://stackoverflow.com/questions/25674612/ubuntu-14-04-pip-cannot-upgrade-matplotllib
 RUN apt-get install -yq libfreetype6-dev libxft-dev
@@ -59,6 +60,12 @@ RUN ln -s $DEP_DIR/JuliaMono-Bold.ttf /usr/local/share/fonts/
 RUN ln -s $CONFIG_DIR/neofetch ~/.config/neofetch
 RUN apt-get install -yq neofetch
 
+# Installing the fonts
+### arggh still not able to generate all fonts in julia in vim
+RUN mkdir /usr/local/share/fonts/sample
+RUN ln -s $DEP_DIR/JuliaMono-Regular.ttf /usr/share/fonts/truetype/
+RUN apt-get install -yq fontconfig
+RUN fc-cache -f -v
 
 # Source common_scripts into .bashrc
 RUN echo "source ${WORKBOX_DIR}/common_scripts.sh" >> /root/.bashrc
@@ -73,6 +80,7 @@ RUN jupyter nbextension install --user --py webgui_jupyter_widgets
 RUN jupyter nbextension enable --user --py webgui_jupyter_widgets
 
 # Standard ngsolve installation
+# Might want to consider pip3 install NGsolve
 RUN apt-add-repository universe
 RUN add-apt-repository ppa:ngsolve/ngsolve
 RUN apt-get update
@@ -84,12 +92,15 @@ RUN apt-get upgrade -y
 RUN apt-get install -y latexmk
 RUN apt-get install -y texlive-full
 RUN apt-get install -y biber
+RUN apt-get install -yq rxvt-unicode # display unicode in terminal
 
 
 # Zathura
 RUN apt-get -y install zathura
 RUN mkdir -p ~/.config/zathura
 RUN ln -s $CONFIG_DIR/zathurarc ~/.config/zathura/zathurarc
+RUN apt-get install -yq xdotool # for vimtex-zathura interface
+
 
 # Tmux
 RUN apt-get install -yq tmux
@@ -133,8 +144,8 @@ RUN julia --project="/root/.config/coc/extensions/node_modules/coc-julia/server/
 RUN nvim +'CocCommand julia.CompileLanguageServerSysimg' +qall
 
 
-# Paraview
-RUN apt-get install -yq paraview
+# FEM libraries
+RUN apt-get install -yq paraview gmsh
 
 
 # For regular code
