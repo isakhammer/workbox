@@ -53,8 +53,19 @@ WORKDIR $WORKBOX_DIR
 # Copy all files from host to container
 COPY . .
 
-# neofetch
+# Installing the fonts
+RUN mkdir /usr/local/share/fonts/sample
+RUN ln -s $DEP_DIR/JuliaMono-Bold.ttf /usr/local/share/fonts/
+
+RUN ln -s $CONFIG_DIR/neofetch ~/.config/neofetch
 RUN apt-get install -yq neofetch
+
+# Installing the fonts
+### arggh still not able to generate all fonts in julia in vim
+RUN mkdir /usr/local/share/fonts/sample
+RUN ln -s $DEP_DIR/JuliaMono-Regular.ttf /usr/share/fonts/truetype/
+RUN apt-get install -yq fontconfig
+RUN fc-cache -f -v
 
 
 # Installing the fonts
