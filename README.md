@@ -5,7 +5,7 @@ Docker environment for vim workflow of latex development inspired by this [blog]
 
 For quite some time have I been struggling with annoyance of random issues that pop up in terms of my vim and latex environment during my master thesis. I realized that installing everything at the host operating system and fix things on the go was risky since I could not guarantee a stable system. Therefore, I now created a workbox inside a docker container with every installation I need, which makes is easy to install, write, compile and reproduce any errors.
 
-The concept is simply that the workbox, which is a docker container with fully installed features, is mounted to your workspace repo. It is now possible to easily combine compiling any latex projects, jupyter notebooks, run simulations and use custom vim bindings in one go with exactly the same setup on any linux devices. 
+The concept is simply that the workbox, which is a docker container with fully installed features, is mounted to your workspace repo. It is now possible to easily combine compiling any latex projects, jupyter notebooks, run simulations and use custom vim bindings in one go with exactly the same setup on any linux device. 
 
 ## Main Features:
   - Neovim with vimtex, UltiSnips with custom mathematical tex snippets and coc.nvim.  
