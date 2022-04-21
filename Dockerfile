@@ -54,10 +54,6 @@ RUN mkdir $HOME_DIR/.config
 # Copy all files from host to container
 COPY . .
 
-# Installing the fonts
-RUN mkdir /usr/local/share/fonts/sample
-RUN ln -s $DEP_DIR/JuliaMono-Bold.ttf /usr/local/share/fonts/
-
 RUN apt-get install -yq neofetch
 RUN mkdir -p ~/.config/neofetch
 RUN ln -s $CONFIG_DIR/neofetch/config.conf ~/.config/neofetch/config.conf
