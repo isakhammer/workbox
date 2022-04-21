@@ -54,9 +54,9 @@ RUN mkdir $HOME_DIR/.config
 # Copy all files from host to container
 COPY . .
 
-RUN apt-get install -yq neofetch
 RUN mkdir -p ~/.config/neofetch
 RUN ln -s $CONFIG_DIR/neofetch/config.conf ~/.config/neofetch/config.conf
+RUN apt-get install -yq neofetch
 
 # Installing the fonts
 ### arggh still not able to generate all fonts in julia in vim
