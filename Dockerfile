@@ -47,6 +47,7 @@ ENV WORKBOX_DIR $HOME_DIR/workbox
 ENV CONFIG_DIR $WORKBOX_DIR/config
 ENV DEP_DIR $WORKBOX_DIR/dependencies
 WORKDIR $WORKBOX_DIR
+RUN mkdir $HOME_DIR/.config
 
 # INSTALL WORKBOX
 
@@ -58,7 +59,8 @@ RUN mkdir /usr/local/share/fonts/sample
 RUN ln -s $DEP_DIR/JuliaMono-Bold.ttf /usr/local/share/fonts/
 
 RUN apt-get install -yq neofetch
-RUN ln -s $CONFIG_DIR/neofetch ~/.config/neofetch
+RUN mkdir -p ~/.config/neofetch
+RUN ln -s $CONFIG_DIR/neofetch/config.conf ~/.config/neofetch/config.conf
 
 # Installing the fonts
 ### arggh still not able to generate all fonts in julia in vim
