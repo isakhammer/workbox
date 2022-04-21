@@ -60,13 +60,6 @@ RUN apt-get install -yq neofetch
 
 # Installing the fonts
 ### arggh still not able to generate all fonts in julia in vim
-RUN ln -s $DEP_DIR/JuliaMono-Regular.ttf /usr/share/fonts/truetype/
-RUN apt-get install -yq fontconfig
-RUN fc-cache -f -v
-
-
-# Installing the fonts
-### arggh still not able to generate all fonts in julia in vim
 RUN mkdir /usr/local/share/fonts/sample
 RUN ln -s $DEP_DIR/JuliaMono-Regular.ttf /usr/share/fonts/truetype/
 RUN apt-get install -yq fontconfig
