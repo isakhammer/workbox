@@ -27,6 +27,8 @@ RUN apt-get install -yq git cmake make
 RUN apt-get install -yq bc libblas-dev liblapack-dev
 RUN apt-get install -yq xclip
 
+# Dependencie in ubuntu for vimtex -> zathura interface
+RUN apt-get install -yq dbus-x11
 
 # Deep bug somwhere when installing matplotlib on ubuntu20
 # https://stackoverflow.com/questions/25674612/ubuntu-14-04-pip-cannot-upgrade-matplotllib
