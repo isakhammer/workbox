@@ -49,11 +49,15 @@ Plug 'djoshea/vim-autoread'
 Plug 'Yggdroot/indentLine'
 Plug 'mhinz/vim-startify'
 Plug 'bling/vim-airline'
-Plug 'morhetz/gruvbox'
 Plug 'junegunn/goyo.vim'
 Plug 'kovetskiy/sxhkd-vim'
 Plug 'JuliaEditorSupport/julia-vim'
 Plug 'kassio/neoterm'
+
+" colorschemes
+Plug 'morhetz/gruvbox'
+Plug 'KeitaNakamura/neodark.vim'
+
 call plug#end()
 
 
@@ -63,6 +67,8 @@ call plug#end()
 colorscheme gruvbox
 " coc debug information
 " let g:gruvbox_guisp_fallback = 'bg'
+set termguicolors                " recommended
+colorscheme neodark
 
 
 """""""
