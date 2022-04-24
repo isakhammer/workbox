@@ -64,10 +64,11 @@ call plug#end()
 """""""
 " GRUVBOX
 """""""
-colorscheme gruvbox
+" colorscheme gruvbox
 " coc debug information
 " let g:gruvbox_guisp_fallback = 'bg'
-set termguicolors                " recommended
+
+" set termguicolors                " recommended
 colorscheme neodark
 
 
