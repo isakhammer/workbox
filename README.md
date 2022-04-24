@@ -26,11 +26,11 @@ Now you are free to run most julia scripts, python scripts and write/compile lat
 
 ## Example of Latex Compilation
 
-We now want to compile the already mentioned [template](https://github.com/isakhammer/workbox/tree/master/template). Go into the repo and access the template folder. Now, use the alias by writing `workbox`. You will now create a workbox container and be directed to the template folder inside `/root/code`.
+We now want to compile the already mentioned [template](https://github.com/isakhammer/workbox/tree/master/template). 
 
-  1) To compile the latex documents, first run zathura inside `/root/code` using the command `zbg` (the alias is defined in the [commons scripts](https://github.com/isakhammer/workbox/blob/master/common_scripts.sh)) to open the `main.pdf`.
-
-  2) Now access any `.tex` using vim, for instance `vim main.tex` and to start automatic compilation use the vimtex alias `\ll`(read more at the vimtex documentation [here](https://github.com/lervag/vimtex)). 
+1) Now, use the alias by writing `workbox` inside the template folder from the link above. You will now create a workbox container and be directed to the template folder inside `/root/code`. 
+2) When inside the container, access the main tex file using `vim main.tex`.
+3) Vimtex alias `\ll` to start automatic compilation of document (read more at the vimtex documentation [here](https://github.com/lervag/vimtex)). 
 
 The latex document should now be compiled.
 
