@@ -152,11 +152,11 @@ nmap <leader>h :bp <CR>
 
 " SMART LINE MOTIONS
 " Copy relative line
-nnoremap <leader>- :-co.<left><left><left>
-nnoremap <leader>_ :+co.<left><left><left>
+" nnoremap <leader>- :-co.<left><left><left>
+" nnoremap <leader>_ :+co.<left><left><left>
 " Move relative line
-nnoremap - :-mo.<left><left><left>
-nnoremap _ :+mo.<left><left><left>
+" nnoremap - :-mo.<left><left><left>
+" nnoremap _ :+mo.<left><left><left>
 
 " Save file as sudo on files that require root permission
 cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
