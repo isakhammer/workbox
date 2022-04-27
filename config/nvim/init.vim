@@ -88,6 +88,7 @@ set smartindent         " copy indent from current line when starting a new line
 """""""
 set bg=dark
 "set bg=light
+set thesaurus+=~/workbox/config/nvim/thesaurus.txt
 
 set go=a
 set mouse=a
