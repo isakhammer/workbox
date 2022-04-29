@@ -25,6 +25,7 @@ alias so="source ~/.bashrc"
 alias f="fg"
 alias w="cd ~/workbox"
 alias r="ranger"
+alias e="exit"
 
 alias juplab="jupyter-lab --ip 0.0.0.0 --port 8888 --allow-root"
 

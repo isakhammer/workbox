@@ -105,6 +105,7 @@ set scrolloff=8
 nnoremap c "_c
 set nocompatible
 filetype plugin on
+
 syntax on
 set encoding=utf-8
 set number relativenumber
@@ -360,5 +361,9 @@ let g:airline_section_y = airline#section#create_right(['coc_status','ffenc'])
 " turn off tabs to avoid collision with coc-vim and instead convert automatically.
 let g:latex_to_unicode_tab = 0
 let g:latex_to_unicode_auto = 0
-" inoremap <C-Tab> <C-X><C-U>
+if &filetype ==# 'julia'
+    let g:latex_to_unicode_auto = 1
+    setlocal noexpandtab
+endif
+" inoremap <C-B> <C-X><C-U>
 
