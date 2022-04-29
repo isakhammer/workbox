@@ -363,7 +363,6 @@ let g:latex_to_unicode_tab = 0
 let g:latex_to_unicode_auto = 0
 if &filetype ==# 'julia'
     let g:latex_to_unicode_auto = 1
-    setlocal noexpandtab
 endif
 " inoremap <C-B> <C-X><C-U>
 
