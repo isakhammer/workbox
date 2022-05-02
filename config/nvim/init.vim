@@ -58,6 +58,9 @@ Plug 'kassio/neoterm'
 Plug 'morhetz/gruvbox'
 Plug 'KeitaNakamura/neodark.vim'
 
+
+Plug 'ron89/thesaurus_query.vim'
+
 call plug#end()
 
 
@@ -70,6 +73,12 @@ call plug#end()
 
 " set termguicolors                " recommended
 colorscheme neodark
+
+"""""""""""""""
+"THESAURUS_QUERY
+""""""""""""""""
+nnoremap <Leader>d :ThesaurusQueryReplaceCurrentWord<CR>
+vnoremap <Leader>d y:ThesaurusQueryReplace <C-r>"<CR>
 
 
 """""""
@@ -88,7 +97,7 @@ set smartindent         " copy indent from current line when starting a new line
 """""""
 set bg=dark
 "set bg=light
-set thesaurus+=~/workbox/config/nvim/thesaurus.txt
+" set thesaurus+=~/workbox/config/nvim/thesaurus.txt
 
 set go=a
 set mouse=a
