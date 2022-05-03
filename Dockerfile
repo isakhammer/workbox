@@ -23,6 +23,7 @@ RUN apt-get -y install apt-transport-https lsb-release
 RUN apt-get -y install lsb-release
 RUN apt-get -y install ca-certificates
 RUN apt-get -y install gcc g++ make
+
 RUN apt-get install -yq git cmake make
 RUN apt-get install -yq bc libblas-dev liblapack-dev
 RUN apt-get install -yq xclip
@@ -38,8 +39,8 @@ RUN apt-get install -yq libfreetype6-dev libxft-dev
 # python3.8
 RUN add-apt-repository -y ppa:deadsnakes/ppa
 RUN apt-get -y update
-RUN apt-get install -y python3.8 python3.8-tk python3.8-dev
-RUN apt-get -y install python3-pip
+RUN apt-get install -yq python3.8 python3.8-tk python3.8-dev
+RUN apt-get install -yq python3-pip python3.8-venv
 RUN /usr/bin/python3.8 -m pip install --upgrade pip
 RUN pip3 install --upgrade pip
 
