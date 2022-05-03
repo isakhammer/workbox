@@ -29,6 +29,17 @@ alias e="exit"
 
 alias juplab="jupyter-lab --ip 0.0.0.0 --port 8888 --allow-root"
 
+function p3(){
+    if [ -n "$1" ]; then
+    	    mkdir -p ~/.cache/p3
+    	    touch ~/.cache/p3/pp
+    	    echo "cd $PWD && python3 $1 || cd -" > ~/.cache/p3/pp
+    fi
+    cat ~/.cache/p3/pp && bash ~/.cache/p3/pp
+}
+
+alias p="p3"
+
 # Basic git aliases
 function git_clone_recursive()  {
     arg=$1
