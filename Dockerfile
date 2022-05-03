@@ -153,4 +153,6 @@ RUN mkdir -p $HOME_DIR/code
 ENV WORK_DIR $HOME_DIR/code
 WORKDIR $WORK_DIR
 
+# Source after the end of installation
+RUN source /root/.bashrc
 
