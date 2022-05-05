@@ -33,6 +33,7 @@ Plug 'fholgado/minibufexpl.vim'
 Plug 'davidhalter/jedi'
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Npm
 
+
 " Workflow
 Plug 'jpalardy/vim-slime'
 Plug 'mroavi/vim-julia-cell', { 'for': 'julia' }
