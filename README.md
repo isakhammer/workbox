@@ -1,5 +1,5 @@
 # Workbox
-**Multi Purpose Workbox for Scientific Linux Workflow!**
+**Multi purpose workbox for scientific Linux workflow!**
 
 Docker environment for vim workflow of latex development inspired by this [blog](https://castel.dev/post/lecture-notes-1/) and basic scientific programming using Python and Julia.
 
