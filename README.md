@@ -49,7 +49,7 @@ workbox local
 
 ## Further Notes
 - If you want to really exploit this system, please study the setup of [config](https://github.com/isakhammer/workbox/tree/master/config), [common_scripts.sh](https://github.com/isakhammer/workbox/blob/master/common_scripts.sh) and the [Dockerfile](https://github.com/isakhammer/workbox/blob/master/Dockerfile) in detail. Most of the configurations are symbolic links to files in `~/.config` inside the container, with some exceptions such as nvim.
-- At the moment is my [tex snippets](https://github.com/isakhammer/workbox/blob/master/config/nvim/UltiSnips/tex.snippets) taking advantage of my norwegian keyboard using letters `øæå` as aliases for common math snippets. Feel free to customize. 
+- At the moment is my [tex snippets](https://github.com/isakhammer/workbox/blob/master/config/nvim/UltiSnips/tex.snippets) taking advantage of my norwegian keyboard using letters `øæå` as aliases for common math snippets. 
 
 
   
