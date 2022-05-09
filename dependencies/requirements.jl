@@ -14,5 +14,6 @@ Pkg.add([
 "Gridap",
 "GridapMakie",
 "GridapGmsh",
+"Symbolics",
 "GLMakie",
 "FileIO"])

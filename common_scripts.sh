@@ -19,6 +19,7 @@ export KEYTIMEOUT=1
 alias c="clear"
 alias vim="nvim"
 alias ls="ls --color=auto"
+alias n="netgen"
 alias zbg="zathura main.pdf &>/dev/null &"
 alias pbg="paraview &>/dev/null &"
 alias so="source ~/.bashrc"
