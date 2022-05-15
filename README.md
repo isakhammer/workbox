@@ -3,7 +3,7 @@
 
 Docker environment for vim workflow of latex development (inspired by this [blog](https://castel.dev/post/lecture-notes-1/)) and basic scientific programming (Python and Julia).
 
-For quite some time have I been struggling with annoyance of random issues that pop up in terms of my vim and latex environment during my master thesis such as mapping collisions between, zathura-vimtex interface plus other compatibility problems. Therefore, I created a docker environment to install everything I need from scratch, which makes is easy to reproduce any flaws in my vim workflow. 
+For quite some time have I been struggling with annoyance of random issues that pop up in terms of my vim and latex environment during my master thesis such as vim mapping collisions, zathura-vimtex interface plus other compatibility problems. Therefore, I created a docker environment to install everything I need from scratch, which makes is easy to reproduce any flaws in my vim workflow. 
 
 Anyhow, I started to find this docker environment useful for daily workflow, hence the name workbox. The concept is basically to mount the docker container, with fully installed features, to your workspace repo. It is now possible to easily combine compiling any scientific latex projects, jupyter notebooks, run simulations and use custom vim bindings in one go with exactly the same setup on any linux device. 
 
