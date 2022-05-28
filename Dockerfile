@@ -29,7 +29,7 @@ RUN apt-get install -yq bc libblas-dev liblapack-dev
 RUN apt-get install -yq xclip
 
 # VSCODE
-RUN wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
+RUN wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | apt-key add -
 RUN add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
 RUN apt-get -yq install code
 
