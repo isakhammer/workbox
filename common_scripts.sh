@@ -12,12 +12,13 @@ shopt -s expand_aliases # expand aliases
 export EDITOR="nvim"
 export READER="zathura"
 
-
 # vi mode
 set -o vi
 export KEYTIMEOUT=1
 alias c="clear"
 alias vim="nvim"
+alias v="nvim"
+alias j="julia"
 alias ls="ls --color=auto"
 alias n="netgen"
 alias zbg="zathura main.pdf &>/dev/null &"
@@ -82,8 +83,6 @@ alias gce="git commit -a --allow-empty-message -m ''"
 alias gp="git push origin HEAD"
 alias gpu="git pull"
 alias sgg="set_git_global_user"
-
-
 
 # Sample prompt declaration based off of the default Ubuntu 14.04.1 color
 # prompt. Tweak as you see fit, or just stick "$(git_prompt)" into your

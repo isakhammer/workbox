@@ -178,7 +178,10 @@ set splitright
 
  " Spelling correction when pressing ctrl L
 setlocal spell
-hi SpellBad    ctermfg=none      ctermbg=none     cterm=none      guifg=none   guibg=none gui=none
+" hi SpellBad    ctermfg=none      ctermbg=none     cterm=none      guifg=none   guibg=none gui=none
+" hi clear SpellBad
+" hi SpellBad cterm=underline
+
 set spelllang=en_gb
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
