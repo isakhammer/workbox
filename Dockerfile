@@ -12,7 +12,7 @@ ENV HOME_DIR /root
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update
 RUN apt-get -y upgrade
-RUN apt-get install -yq apt-utils dialog
+RUN apt-get install -yq apt-utils dialog apt-transport-https wget
 RUN apt-get install -yq build-essential software-properties-common
 RUN apt-get update
 
@@ -27,7 +27,12 @@ RUN apt-get -y install gcc g++ make
 RUN apt-get install -yq git cmake make
 RUN apt-get install -yq bc libblas-dev liblapack-dev
 RUN apt-get install -yq xclip
-RUN snap install --classic code
+
+# VSCODE
+RUN wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
+RUN add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+RUN apt-get -yq install code
+
 
 # Dependencie in ubuntu for vimtex -> zathura interface
 RUN apt-get install -yq dbus-x11
