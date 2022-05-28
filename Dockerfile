@@ -32,6 +32,8 @@ RUN apt-get install -yq xclip
 RUN wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | apt-key add -
 RUN add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
 RUN apt-get -yq install code
+RUN code --install-extension James-Yu.latex-workshop
+RUN code --install-extension streetsidesoftware.code-spell-checker
 
 
 # Dependencie in ubuntu for vimtex -> zathura interface
