@@ -17,7 +17,7 @@ RUN apt-get install -yq build-essential software-properties-common
 RUN apt-get update
 
 # potential dependencies
-RUN apt-get -y install curl
+RUN apt-get -y install curl snapd
 RUN apt-get -y install dirmngr
 RUN apt-get -y install apt-transport-https lsb-release
 RUN apt-get -y install lsb-release
@@ -27,6 +27,7 @@ RUN apt-get -y install gcc g++ make
 RUN apt-get install -yq git cmake make
 RUN apt-get install -yq bc libblas-dev liblapack-dev
 RUN apt-get install -yq xclip
+RUN snap install --classic code
 
 # Dependencie in ubuntu for vimtex -> zathura interface
 RUN apt-get install -yq dbus-x11
