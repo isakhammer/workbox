@@ -18,7 +18,7 @@ Anyhow, I started to find this docker environment useful for daily workflow, hen
 
 Clone repo and put this into your `.bashrc`, remember to fill in the correct path to workbox repo.
 ```
-alias workbox="bash {$PATH_TO_WORKBOX_REPO}/run_workbox.sh"
+alias workbox="bash ${PATH_TO_WORKBOX_REPO}/run_workbox.sh"
 ```
 Now, go into in to any folder and run the bash alias `workspace`. The command will now create a docker container which the volume of folder is mounted to the container path `/root/code`. Similarly, the cloned workbox repo volume is by default mounted to the container path `/root/workbox`.
 
