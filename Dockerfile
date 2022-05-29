@@ -12,7 +12,7 @@ ENV HOME_DIR /root
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update
 RUN apt-get -y upgrade
-RUN apt-get install -yq apt-utils dialog apt-transport-https wget
+RUN apt-get install -yq apt-utils dialog apt-transport-https wget libasound2
 RUN apt-get install -yq build-essential software-properties-common
 RUN apt-get update
 
