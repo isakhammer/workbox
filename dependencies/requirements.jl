@@ -11,10 +11,11 @@ Pkg.add([
 "CSV",
 "Plots",
 "IJulia",
-"VimBindings",
 "Gridap",
 "GridapMakie",
 "GridapGmsh",
 "Symbolics",
 "GLMakie",
 "FileIO"])
+
+Pkg.add( url="https://github.com/caleb-allen/VimBindings.jl")
