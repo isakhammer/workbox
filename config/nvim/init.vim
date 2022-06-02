@@ -177,7 +177,8 @@ autocmd BufWritePre * %s/\s\+$//e
 set splitright
 
  " Spelling correction when pressing ctrl L
-setlocal spell
+" setlocal spell
+set spell
 " hi SpellBad    ctermfg=none      ctermbg=none     cterm=none      guifg=none   guibg=none gui=none
 " hi clear SpellBad
 " hi SpellBad cterm=underline
