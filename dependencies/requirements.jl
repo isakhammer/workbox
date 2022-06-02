@@ -18,4 +18,3 @@ Pkg.add([
 "GLMakie",
 "FileIO"])
 
-Pkg.add( url="https://github.com/caleb-allen/VimBindings.jl")
