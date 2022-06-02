@@ -11,6 +11,7 @@ Pkg.add([
 "CSV",
 "Plots",
 "IJulia",
+"VimBindings",
 "Gridap",
 "GridapMakie",
 "GridapGmsh",
