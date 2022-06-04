@@ -26,7 +26,7 @@ RUN apt-get -y install gcc g++ make
 
 RUN apt-get install -yq git cmake make
 RUN apt-get install -yq bc libblas-dev liblapack-dev
-RUN apt-get install -yq xclip
+RUN apt-get install -yq xclip feh
 
 # VSCODE
 RUN wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | apt-key add -
