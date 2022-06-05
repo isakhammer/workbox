@@ -4,6 +4,7 @@ Pkg.add([
 "DifferentialEquations",
 "ParameterizedFunctions",
 "PyPlot",
+"PlotlyJS",
 "PackageCompiler",
 "Revise",
 "OhMyREPL",
