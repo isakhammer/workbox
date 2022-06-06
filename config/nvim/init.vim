@@ -179,11 +179,13 @@ set splitright
  " Spelling correction when pressing ctrl L
 " setlocal spell
 set spell
+set spellfile+=~/workbox/config/nvim/spell/en.utf-8.add
+
 " hi SpellBad    ctermfg=none      ctermbg=none     cterm=none      guifg=none   guibg=none gui=none
 " hi clear SpellBad
 " hi SpellBad cterm=underline
 
-set spelllang=en_gb
+set spelllang=en
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
@@ -268,6 +270,7 @@ let g:rooter_patterns = ['.git']
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""" LATEX SETUP """""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:tex_comment_nospell=1
 
 """"""""""""""""""""""""""""""
 " => vim-autosave plugin
