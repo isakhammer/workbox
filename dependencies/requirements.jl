@@ -12,6 +12,7 @@ Pkg.add([
 "CSV",
 "Plots",
 "IJulia",
+"Distributions",
 "Gridap",
 "GridapMakie",
 "GridapGmsh",
