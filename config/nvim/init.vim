@@ -34,6 +34,7 @@ Plug 'davidhalter/jedi'
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Npm
 
 
+
 " Workflow
 Plug 'jpalardy/vim-slime'
 Plug 'mroavi/vim-julia-cell', { 'for': 'julia' }
@@ -42,12 +43,11 @@ Plug 'mroavi/vim-julia-cell', { 'for': 'julia' }
 Plug 'SirVer/ultisnips' " Python3
 Plug 'lervag/vimtex' " Latexmk, zathura and texlive-most(AUR)
 Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
-Plug 'matze/vim-tex-fold'
+" Plug 'matze/vim-tex-fold'
 Plug '907th/vim-auto-save'
 
 " Appearance
 Plug 'djoshea/vim-autoread'
-Plug 'Yggdroot/indentLine'
 Plug 'mhinz/vim-startify'
 Plug 'bling/vim-airline'
 Plug 'junegunn/goyo.vim'
@@ -212,11 +212,6 @@ endif
 vnoremap < <gv
 vnoremap > >gv
 
-"""""""
-" INDENTLINE:
-"""""""
-let g:indentLine_char       = '┆'
-let g:indentLine_setConceal = 0
 
 """""""
 " GOYO:
