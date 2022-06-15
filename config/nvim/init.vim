@@ -373,8 +373,9 @@ let g:airline_section_y = airline#section#create_right(['coc_status','ffenc'])
 " turn off tabs to avoid collision with coc-vim and instead convert automatically.
 let g:latex_to_unicode_tab = 0
 let g:latex_to_unicode_auto = 0
+
 if &filetype ==# 'julia'
-    let g:latex_to_unicode_auto = 1
+    let g:latex_to_unicode_tab = 1
 endif
 " inoremap <C-B> <C-X><C-U>
 

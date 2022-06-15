@@ -5,6 +5,8 @@ Pkg.add([
 "ParameterizedFunctions",
 "PyPlot",
 "PlotlyJS",
+"LaTeXStrings",
+"DiffEqFlux",
 "PackageCompiler",
 "Revise",
 "OhMyREPL",
