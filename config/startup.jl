@@ -1,6 +1,8 @@
 using Revise
 using OhMyREPL
 
+PLOTS_DEFAULTS = Dict(:dpi => 600)
+
 function clean()
     println("")
     println("")
