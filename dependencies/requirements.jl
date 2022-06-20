@@ -18,6 +18,10 @@ Pkg.add([
 "Gridap",
 "GridapMakie",
 "GridapGmsh",
+"RDatasets",
+"TexTables",
+"DataStructures",
+"DataFrames",
 "Symbolics",
 "GLMakie",
 "FileIO"])
