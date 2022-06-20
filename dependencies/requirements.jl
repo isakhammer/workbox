@@ -19,6 +19,7 @@ Pkg.add([
 "GridapGmsh",
 "RDatasets",
 "TexTables",
+"PrettyTables",
 "DataStructures",
 "DataFrames",
 "Symbolics",
