@@ -10,7 +10,6 @@ Pkg.add([
 "PackageCompiler",
 "Revise",
 "OhMyREPL",
-"DataFrames",
 "CSV",
 "Plots",
 "IJulia",
