@@ -6,6 +6,7 @@ Pkg.add([
 "PyPlot",
 "PlotlyJS",
 "LaTeXStrings",
+"Latexify",
 "DiffEqFlux",
 "PackageCompiler",
 "Revise",
