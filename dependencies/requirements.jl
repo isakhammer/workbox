@@ -18,6 +18,7 @@ Pkg.add([
 "Gridap",
 "GridapMakie",
 "GridapGmsh",
+"CairoMakie",
 "RDatasets",
 "TexTables",
 "PrettyTables",
