@@ -11,6 +11,11 @@ shopt -s expand_aliases # expand aliases
 
 export EDITOR="nvim"
 export READER="zathura"
+export XDG_RUNTIME_DIR="~/workbox/.xdg_runtime_dir"
+
+# Unicode in git diff
+# https://stackoverflow.com/questions/17320721/git-diff-shows-unicode-symbols-in-angle-brackets
+export LESSCHARSET=utf-8
 
 # vi mode
 set -o vi
