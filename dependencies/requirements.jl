@@ -3,6 +3,7 @@ Pkg.add([
 "LanguageServer",
 "DifferentialEquations",
 "ParameterizedFunctions",
+"Parameters",
 "PyPlot",
 "PlotlyJS",
 "LaTeXStrings",
