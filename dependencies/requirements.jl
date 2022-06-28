@@ -19,13 +19,14 @@ Pkg.add([
 "Gridap",
 "GridapMakie",
 "GridapGmsh",
-"CairoMakie",
 "RDatasets",
 "TexTables",
 "PrettyTables",
 "DataStructures",
 "DataFrames",
 "Symbolics",
+"CairoMakie",
 "GLMakie",
+"Makie",
 "FileIO"])
 
