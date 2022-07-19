@@ -10,3 +10,7 @@ CP
 discretization
 solvability
 Galerkin
+posedness
+EOC
+CIP
+preconditioner
