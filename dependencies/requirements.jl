@@ -4,8 +4,6 @@ Pkg.add([
 "DifferentialEquations",
 "ParameterizedFunctions",
 "Parameters",
-"PyPlot",
-"PlotlyJS",
 "LaTeXStrings",
 "Latexify",
 "DiffEqFlux",
