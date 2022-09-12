@@ -1,6 +1,6 @@
 IMAGE_NAME="isakhammer/workbox:latest"
 WORKBOX_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
-
+     
 GREEN='\033[0;32m'
 NC='\033[0m' # No Color
 function echo_color {
@@ -45,6 +45,7 @@ function run_workbox()  {
      -v $HOME/.gitconfig:/root/.gitconfig \
      $image_name "$@"
 }
+
 
 
 
