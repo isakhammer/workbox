@@ -1,6 +1,7 @@
 using Pkg
 Pkg.add([
 "LanguageServer",
+"BenchmarkTools",
 "DifferentialEquations",
 "ParameterizedFunctions",
 "Parameters",
