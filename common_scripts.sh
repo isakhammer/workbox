@@ -12,6 +12,7 @@ shopt -s expand_aliases # expand aliases
 export EDITOR="nvim"
 export READER="zathura"
 export XDG_RUNTIME_DIR="~/.xdg_runtime_dir"
+export JULIA_NUM_THREADS=8
 
 # Unicode in git diff
 # https://stackoverflow.com/questions/17320721/git-diff-shows-unicode-symbols-in-angle-brackets
