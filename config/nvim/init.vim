@@ -33,8 +33,6 @@ Plug 'fholgado/minibufexpl.vim'
 Plug 'davidhalter/jedi'
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Npm
 
-
-
 " Workflow
 Plug 'jpalardy/vim-slime'
 Plug 'mroavi/vim-julia-cell', { 'for': 'julia' }
@@ -147,7 +145,7 @@ nnoremap <leader>se :e $MYVIMRC_PERSONAL<CR>
 nnoremap <leader>so :so $MYVIMRC<CR>
 
 " Fast saving and quitting
-nmap <leader>w :w!<cr>
+nmap <leader>w :w!<CR>
 nmap <leader>q :qa!<CR>
 nmap <leader>x :wqa!<CR>
 
