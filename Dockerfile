@@ -106,6 +106,7 @@ RUN apt-get upgrade -y
 RUN apt-get install -y latexmk
 RUN apt-get install -y texlive-full
 RUN apt-get install -y biber
+RUN apt-get install -y pandoc
 RUN apt-get install -yq rxvt-unicode # display unicode in terminal
 
 
