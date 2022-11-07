@@ -352,11 +352,12 @@ let g:AutoPairsShortcutBackInsert = '<M-b>'
 """""""
 " Coc:
 """"""
-source ~/workbox/config/nvim/cocrc.vim
-hi CocInfoFloat guifg=#hex-color guibg=#hex-color
-hi CocWarningFloat guifg=#hex-color guibg=#hex-color
-hi CocHintFloat guifg=#hex-color guibg=#hex-color
-nmap <silent> gd <Plug>(coc-definition)
+" doesnt work with tab :(
+" source ~/workbox/config/nvim/cocrc.vim
+" hi CocInfoFloat guifg=#hex-color guibg=#hex-color
+" hi CocWarningFloat guifg=#hex-color guibg=#hex-color
+" hi CocHintFloat guifg=#hex-color guibg=#hex-color
+" nmap <silent> gd <Plug>(coc-definition)
 
 
 """""

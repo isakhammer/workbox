@@ -37,6 +37,11 @@ alias e="exit"
 
 alias juplab="jupyter-lab --ip 0.0.0.0 --port 8888 --allow-root"
 
+# binding ctrl-f to fuzzy search
+alias cz='cd "$(dirname "$(fzf)")" && ls'
+# alias cza='zathura_close "$(find -iname "*.pdf" | fzf")"'
+bind '"\C-f":"cz \r"'
+
 function p3(){
     if [ -n "$1" ]; then
         mkdir -p ~/.cache/p3
