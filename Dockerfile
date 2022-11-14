@@ -93,6 +93,14 @@ RUN jupyter nbextension enable --user --py widgetsnbextension
 RUN jupyter nbextension install --user --py webgui_jupyter_widgets
 RUN jupyter nbextension enable --user --py webgui_jupyter_widgets
 
+# Standard ngsolve installation
+# Might want to consider pip3 install NGsolve
+RUN apt-add-repository universe
+RUN add-apt-repository ppa:ngsolve/ngsolve
+RUN apt-get update
+RUN apt-get install -yq ngsolve
+
+
 # LATEX
 RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
 RUN apt-get upgrade -y
