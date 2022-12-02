@@ -31,6 +31,7 @@ RUN apt-get install -yq xclip feh
 RUN apt-get install -yq xorg-dev mesa-utils \
     xvfb libgl1 freeglut3-dev libxrandr-dev \
     libxinerama-dev libxcursor-dev libxi-dev libxext-dev
+RUN apt-get install -yq jabref
 
 # VSCODE
 RUN wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | apt-key add -
