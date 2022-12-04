@@ -23,6 +23,7 @@ RUN apt-get -y install apt-transport-https lsb-release
 RUN apt-get -y install lsb-release
 RUN apt-get -y install ca-certificates
 RUN apt-get -y install gcc g++ make
+RUN apt-get -y install openjdk-11-jdk
 
 RUN apt-get install -yq git cmake make
 RUN apt-get install -yq bc libblas-dev liblapack-dev
