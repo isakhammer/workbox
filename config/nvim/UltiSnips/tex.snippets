@@ -453,7 +453,7 @@ snippet eqq "equation" bA
 .\end{equation*}
 endsnippet
 
-snippet split "split equation" bA
+snippet split "split equation align" bA
 \begin{split}
 	${1:${VISUAL}}
 \end{split} $0
@@ -629,7 +629,6 @@ snippet lra "leftangle rightangle" i
 endsnippet
 
 # Common definitions
-
 context "math()"
 snippet mean "mean" w
 \mean{ $1 }  $0
@@ -639,155 +638,6 @@ context "math()"
 snippet jump "jump" w
 \jump{ $1 }  $0
 endsnippet
-
-# context "math()"
-# snippet taylor "taylor" w
-# \sum_{${1:k}=${2:0}}^{${3:\infty}} ${4:c_$1} (x-a)^$1 $0
-# endsnippet
-
-# context "math()"
-# snippet rij "mrij" i
-# (${1:x}_${2:n})_{${3:$2}\\in${4:\\N}}$0
-# endsnippet
-
-# context "math()"
-# snippet xNN "x" iA
-# x_{N}
-# endsnippet
-
-# context "math()"
-# snippet xnn "xn" iA
-# x_{n}
-# endsnippet
-
-# context "math()"
-# snippet yNN "yn" iA
-# y_{N}
-# endsnippet
-
-# context "math()"
-# snippet ynn "yn" iA
-# y_{n}
-# endsnippet
-
-# context "math()"
-# snippet x00 "x0" iA
-# x_{0}
-# endsnippet
-
-# context "math()"
-# snippet x11 "x1" iA
-# x_{1}
-# endsnippet
-
-# context "math()"
-# snippet x22 "x1" iA
-# x_{2}
-# endsnippet
-
-# context "math()"
-# snippet y00 "x0" iA
-# y_{0}
-# endsnippet
-
-# context "math()"
-# snippet y11 "x1" iA
-# y_{1}
-# endsnippet
-
-# context "math()"
-# snippet y22 "y1" iA
-# y_{2}
-# endsnippet
-
-# context "math()"
-# snippet t00 "x0" iA
-# t_{0}
-# endsnippet
-
-# context "math()"
-# snippet t11 "x1" iA
-# t_{1}
-# endsnippet
-
-# context "math()"
-# snippet t22 "y1" iA
-# t_{2}
-# endsnippet
-
-# context "math()"
-# snippet tii "xi" iA
-# t_{i}
-# endsnippet
-
-# context "math()"
-# snippet xii "xi" iA
-# x_{i}
-# endsnippet
-
-# context "math()"
-# snippet yii "yi" iA
-# y_{i}
-# endsnippet
-
-# context "math()"
-# snippet tjj "xj" iA
-# t_{j}
-# endsnippet
-
-# context "math()"
-# snippet xjj "xj" iA
-# x_{j}
-# endsnippet
-
-# context "math()"
-# snippet yjj "yj" iA
-# y_{j}
-# endsnippet
-
-# context "math()"
-# snippet tkk "xk" iA
-# t_{k}
-# endsnippet
-
-# context "math()"
-# snippet xkk "xk" iA
-# x_{k}
-# endsnippet
-
-# context "math()"
-# snippet ykk "yk" iA
-# y_{k}
-# endsnippet
-
-# context "math()"
-# snippet xp1 "x" iA
-# x_{n+1}
-# endsnippet
-
-# context "math()"
-# snippet tNN "t" iA
-# t_{N}
-# endsnippet
-
-# context "math()"
-# snippet tMM "t" iA
-# t_{M}
-# endsnippet
-
-# context "math()"
-# snippet xMM "x" iA
-# x_{M}
-# endsnippet
-
-# context "math()"
-# snippet xmm "x" iA
-# x_{m}
-# endsnippet
-
-# snippet R0+ "R0+" iA
-# \\R_0^+
-# endsnippet
 
 snippet ooo "\infty" iA
 \infty
@@ -1347,59 +1197,6 @@ context "math()"
 snippet mcurl "math" iA
 \mathscr{$1} $0
 endsnippet
-################
-#  æ-mappings  #
-################
-# context "math()"
-# snippet æø "nabla" iA
-# _{0} $0
-# endsnippet
-
-# context "math()"
-# snippet æl "nabla" iA
-# _{1} $0
-# endsnippet
-
-# context "math()"
-# snippet æk "nabla" iA
-# _{2} $0
-# endsnippet
-
-# context "math()"
-# snippet æj "nabla" iA
-# _{${1: N}-1} $0
-# endsnippet
-
-# context "math()"
-# snippet æh "nabla" iA
-# _{${1: N}} $0
-# endsnippet
-
-# context "math()"
-# snippet æØ "nabla" iA
-# ^{0} $0
-# endsnippet
-
-# context "math()"
-# snippet æL "nabla" iA
-# ^{1} $0
-# endsnippet
-
-# context "math()"
-# snippet æK "nabla" iA
-# ^{2} $0
-# endsnippet
-
-# context "math()"
-# snippet æJ "nabla" iA
-# ^{${1: N}-1} $0
-# endsnippet
-
-# context "math()"
-# snippet æH "nabla" iA
-# ^{${1: N}} $0
-# endsnippet
-
 
 ################
 #  ø-mappings  #
