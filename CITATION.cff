@@ -2,12 +2,11 @@
 # Visit https://bit.ly/cffinit to generate yours today!
 
 cff-version: 1.2.0
-title: workbox
-message: >-
-  Multi purpose workbox for scientific Linux
-  workflow.
 type: software
 authors:
   - given-names: Isak
     family-names: Hammer
     email: isakhammer@gmail.com
+title: "Multi purpose workbox for scientific Linux workflow"
+date-released: 2022
+url: "https://github.com/isakhammer/workbox/"
