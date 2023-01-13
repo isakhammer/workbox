@@ -1,0 +1,13 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: workbox
+message: >-
+  Multi purpose workbox for scientific Linux
+  workflow.
+type: software
+authors:
+  - given-names: Isak
+    family-names: Hammer
+    email: isakhammer@gmail.com
