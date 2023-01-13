@@ -1,5 +1,5 @@
 # Workbox
-**Multi purpose workbox for scientific Linux workflow!**
+**Multifunctional workbox for scientific Linux workflow!**
 
 Docker environment for vim workflow of latex development (inspired by this [blog](https://castel.dev/post/lecture-notes-1/)) and basic scientific programming (Python and Julia). A similar concept for VScode is the so-called [devcontainers](https://code.visualstudio.com/docs/devcontainers/containers). However, this workflow is specifically for vim development.
 
