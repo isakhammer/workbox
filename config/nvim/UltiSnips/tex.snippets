@@ -444,13 +444,13 @@ snippet eqQ "equation" bA
 \begin{equation}
 \label{eq:${1:label}}
 	${0:${VISUAL}}
-.\end{equation}
+\end{equation}
 endsnippet
 
 snippet eqq "equation" bA
 \begin{equation*}
 	${0:${VISUAL}}
-.\end{equation*}
+\end{equation*}
 endsnippet
 
 snippet split "split equation align" bA
@@ -470,7 +470,7 @@ snippet aliI "Align label" bA
 \begin{align}
 	\label{eq:${1:label}}
 	${1:${VISUAL}}
-.\end{align}
+\end{align}
 endsnippet
 
 ########################
@@ -598,9 +598,14 @@ snippet floor "floor" i
 \left\lfloor $1 \right\rfloor$0
 endsnippet
 
+# context "math()"
+# snippet lr "left( right)" i
+# \left( ${1:${VISUAL}} \right) $0
+# endsnippet
+
 context "math()"
-snippet lr "left( right)" i
-\left( ${1:${VISUAL}} \right) $0
+snippet lr "()" i
+( ${1:${VISUAL}}) $0
 endsnippet
 
 context "math()"
