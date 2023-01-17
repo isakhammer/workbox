@@ -32,7 +32,8 @@ workbox # Starting an instance of the workbox.
 ```
  
 ## Further Notes 
-- The repo should be forked and personalized. The most optimized workflow is to let Github Actions build the Dockerfile automatically and then push the latest image to your personal Docker Hub, which you then can pull whenever you want. You can check out how to do this in my workflow yaml file [here](https://github.com/isakhammer/workbox/blob/master/.github/workflows/docker-image.yml) which automatically is pushing the latest successful build to my personal [hub](https://hub.docker.com/r/isakhammer/workbox). 
+- The repo should be forked and personalized.
+- The most optimized workflow is to let Github Actions build the Dockerfile automatically and then push the latest image to your personal Docker Hub, which you then can pull whenever you want. You can check out how to do this in my workflow yaml file [here](https://github.com/isakhammer/workbox/blob/master/.github/workflows/docker-image.yml) which automatically is pushing the latest successful build to my personal [hub](https://hub.docker.com/r/isakhammer/workbox). 
 - Do not hesitate to put up any issues if you have any questions :slightly_smiling_face:	
 
 
