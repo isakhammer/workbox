@@ -32,7 +32,7 @@ workbox # Starting an instance of the workbox.
 ```
  
 ## Further Notes 
-- The repo should be forked and personalized. Remark that the best way is to let github actions to the build procedure and then push the latest installation to your personal Docker Hub. 
+- The repo should be forked and personalized. The most optimized workflow is to let github actions to the build the Dockerfile and then push the latest image to your personal Docker Hub, which you then can pull whenever you want. My image is https://hub.docker.com/r/isakhammer/workbox 
 - Do not hesitate to put up any issues if you have any questions :slightly_smiling_face:	
 
 
