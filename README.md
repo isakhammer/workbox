@@ -33,7 +33,7 @@ workbox # Starting an instance of the workbox.
  
 ## Further Notes 
 - The repo should be forked and personalized. Remark that the best way is to let github actions to the build procedure and then push the latest installation to your personal Docker Hub. 
-- Do not hesitate to put up any issues you have any questions. :slightly_smiling_face:	
+- Do not hesitate to put up any issues if you have any questions :slightly_smiling_face:	
 
 
   
