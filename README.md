@@ -9,9 +9,9 @@ For quite some time have I been struggling with annoyance of random issues that 
 Anyhow, I started to find this docker environment useful for daily workflow, hence the name workbox. The concept is basically to mount the docker container, with fully installed features, to your workspace repo. It is now possible to easily combine compiling any scientific latex projects, launch jupyter notebooks, run simulations and use custom vim bindings in one go. 
 
 ## Main Features:
-  - (Nvim)[https://github.com/neovim/neovim] with (vimtex)[https://github.com/lervag/vimtex], (UltiSnips)[https://github.com/SirVer/ultisnips] with custom mathematical tex snippets and the autocomplete (coc.nvim)[https://github.com/neoclide/coc.nvim] and much more.  
+  - [Neovim](https://github.com/neovim/neovim) with [vimtex](https://github.com/lervag/vimtex), [UltiSnips](https://github.com/SirVer/ultisnips) with custom mathematical tex snippets and the autocomplete [coc.nvim](https://github.com/neoclide/coc.nvim) and much more.  
   - Fully installed Latexmk compiler and all basic fonts packages via `texlive-full`
-  - (Zathura)[https://github.com/pwmt/zathura] for pdf viewing and (ranger)[https://github.com/ranger/ranger] for file managing. 
+  - [Zathura](https://github.com/pwmt/zathura) for pdf viewing and [ranger](https://github.com/ranger/ranger) for file managing. 
   - Python3 and Julia installed with most packages for basic scientific programming.
   - Running Jupyter Notebooks with no problems
 
