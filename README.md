@@ -32,8 +32,9 @@ workbox # Starting an instance of the workbox.
 ```
  
 ## Further Notes 
-- The repo should be forked and personalized. Remark that the best way is to let github actions to the build procedure and then push the latest installation to your personal Docker Hub.
-- If you want to really exploit this system,and study the setup of [config](https://github.com/isakhammer/workbox/tree/master/config), [common_scripts.sh](https://github.com/isakhammer/workbox/blob/master/common_scripts.sh) and the [Dockerfile](https://github.com/isakhammer/workbox/blob/master/Dockerfile) in detail. 
+- The repo should be forked and personalized. Remark that the best way is to let github actions to the build procedure and then push the latest installation to your personal Docker Hub. 
+- Do not hesitate to put up any issues you have any questions. :slightly_smiling_face:	
+
 
   
   
