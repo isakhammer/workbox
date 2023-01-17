@@ -18,6 +18,8 @@ Anyhow, I started to find this docker environment useful for daily workflow, hen
 ## How to run Workbox
 You need to have docker installed, see [link](https://docs.docker.com/desktop/install/linux-install/).
 
+Then modify and apply the following script:
+
 ```
 # Installation
 PATH_TO_WORKBOX_REPO="$HOME/workbox"
@@ -27,13 +29,11 @@ echo 'alias workbox="bash ${PATH_TO_WORKBOX_REPO}/run_workbox.sh"' >> $HOME/.bas
 # Quick start
 cd $PATH_TO_WORKBOX_REPO/template # Changing directory to some example project, here we do the template.
 workbox # Starting an instance of the workbox.
-zathura main.pdf 
 ```
  
 ## Further Notes 
-- If you want to really exploit this system, please fork the repository and study the setup of [config](https://github.com/isakhammer/workbox/tree/master/config), [common_scripts.sh](https://github.com/isakhammer/workbox/blob/master/common_scripts.sh) and the [Dockerfile](https://github.com/isakhammer/workbox/blob/master/Dockerfile) in detail. Most of the configurations are symbolic links to files in `~/.config` inside the container, with some exceptions such as nvim.
-- At the moment is my [tex snippets](https://github.com/isakhammer/workbox/blob/master/config/nvim/UltiSnips/tex.snippets) taking advantage of my norwegian keyboard using letters `øæå` as aliases for common math snippets. 
-
+- The repo should be forked and personalized. Remark that the best way is to let github actions to the build procedure and then push the latest installation to your personal Docker Hub.
+- If you want to really exploit this system,and study the setup of [config](https://github.com/isakhammer/workbox/tree/master/config), [common_scripts.sh](https://github.com/isakhammer/workbox/blob/master/common_scripts.sh) and the [Dockerfile](https://github.com/isakhammer/workbox/blob/master/Dockerfile) in detail. 
 
   
   
