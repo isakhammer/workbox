@@ -26,6 +26,7 @@ Pkg.add([
 "Symbolics",
 "CairoMakie",
 "GLMakie",
+"Pluto",
 "Makie",
 "FileIO"])
 
