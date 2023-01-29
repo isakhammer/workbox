@@ -90,6 +90,7 @@ set softtabstop=4
 set shiftwidth=4        " number of spaces to use for auto indent
 set colorcolumn=80      " color for column after 80 tegn
 set smartindent         " copy indent from current line when starting a new line
+set autochdir           " Automatically change workdir to current file
 
 """""""
 " BASICS
@@ -141,6 +142,7 @@ map <leader>s :!clear && shellcheck %<CR>
 
 " Quickly edit/reload this configuration file
 let $MYVIMRC_PERSONAL = "~/workbox/config/nvim/init.vim"
+let $CODE_DIR = "~/code/"
 nnoremap <leader>se :e $MYVIMRC_PERSONAL<CR>
 nnoremap <leader>so :so $MYVIMRC<CR>
 
