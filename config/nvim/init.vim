@@ -31,7 +31,7 @@ Plug 'fholgado/minibufexpl.vim'
 
 " Auto completion
 Plug 'davidhalter/jedi'
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " Npm
+" Plug 'neoclide/coc.nvim', {'branch': 'release'} " Npm
 
 " Workflow
 Plug 'jpalardy/vim-slime'
