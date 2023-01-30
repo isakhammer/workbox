@@ -24,6 +24,7 @@ Pkg.add([
 "DataStructures",
 "DataFrames",
 "Symbolics",
+"PyCall",
 "CairoMakie",
 "GLMakie",
 "Pluto",
