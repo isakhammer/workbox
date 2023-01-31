@@ -18,6 +18,7 @@ Pkg.add([
 "Distributions",
 "Gridap",
 "GridapMakie",
+"GridapEmbedded",
 "GridapGmsh",
 "RDatasets",
 "TexTables",
