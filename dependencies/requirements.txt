@@ -23,5 +23,5 @@ webgui_jupyter_widgets
 casadi
 ffmpeg-python
 pandas
-
+autograd
 

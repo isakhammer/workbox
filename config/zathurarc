@@ -49,6 +49,9 @@ set recolor-keephue             true      # keep original color
 # set adjust-open "best-fit"
 set adjust-open "width"
 
+set synctex true
+# set synctex-editor-command "nvr --remote-silent +%{line} %{input}"
+
 set sandbox none
 set statusbar-h-padding 0
 set statusbar-v-padding 0

@@ -16,3 +16,9 @@ CIP
 preconditioner
 multilinear
 Nitsche
+discretize
+Sobolev
+submesh
+Milgram
+Corollary
+Youngs

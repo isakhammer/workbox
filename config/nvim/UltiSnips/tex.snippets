@@ -201,12 +201,14 @@ endsnippet
 
 snippet deff "Definition" b
 \begin{definition}
+	\label{def:${1:label}}
 	$0
 \end{definition}
 endsnippet
 
 snippet defF "Definition" b
 \begin{definition}[${1:name}]
+	\label{def:${2:label}}
 	$0
 \end{definition}
 endsnippet
@@ -247,8 +249,23 @@ snippet propp "Proposition" b
 \end{proposition}
 endsnippet
 
+snippet asmP "Assumption" b
+\begin{assumption}[${2:name}]
+	\label{as:${1:label}}
+	$0
+\end{assumption}
+endsnippet
+
+snippet asmp "Assumption" b
+\begin{assumption}
+	\label{as:${1:label}}
+	$0
+\end{assumption}
+endsnippet
+
 snippet thmM "Theorem" b
 \begin{theorem}[${1:name}]
+
 	$0
 \end{theorem}
 endsnippet
@@ -411,9 +428,8 @@ snippet dpl "display" wA
 \displaystyle $0
 endsnippet
 
-context "math()"
 snippet lbl "label" wA
-\label{eq:{$1}}$0
+\label{$1}$0
 endsnippet
 
 snippet dm "Math" wA
@@ -437,6 +453,10 @@ endsnippet
 
 snippet Pcite "cite page" wA
 \cite[p. ~${2}]{${1}} $0
+endsnippet
+
+snippet Ccite "cite page" wA
+\cite[${2}]{${1}} $0
 endsnippet
 
 
@@ -576,6 +596,11 @@ endsnippet
 context "math()"
 snippet -= "approx" iA
 \approx
+endsnippet
+
+# Arguments
+snippet -< "approxleq" iA
+\lesssim $1
 endsnippet
 
 context "math()"
@@ -863,8 +888,8 @@ snippet norm "norm" iA
 endsnippet
 
 context "math()"
-snippet abs "abs" iA
-\left\lvert $1 \right\rvert $0
+snippet abs "absolute sign" iA
+\abs{ $1 } $0
 endsnippet
 
 
@@ -873,6 +898,7 @@ endsnippet
 snippet <= "leq" iA
 \le $1
 endsnippet
+
 
 snippet >= "geq" iA
 \ge $1
