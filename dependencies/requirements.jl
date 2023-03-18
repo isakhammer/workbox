@@ -29,7 +29,6 @@ Pkg.add([
 "Symbolics",
 "PyCall",
 "CairoMakie",
-"GLMakie",
 "Pluto",
 "Makie",
 "FileIO"])
