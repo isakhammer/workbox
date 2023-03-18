@@ -14,6 +14,7 @@ Pkg.add([
 "OhMyREPL",
 "CSV",
 "Plots",
+"PyPlot",
 "IJulia",
 "Distributions",
 "Gridap",

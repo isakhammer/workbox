@@ -355,8 +355,16 @@ snippet fig "Figure environment" b
 endsnippet
 
 
-# Enumeration
-snippet enuma "Enumerate" bA
+
+# enumeration
+snippet enumm "enumerate" ba
+\begin{enumerate}
+	\item$0
+\end{enumerate}
+endsnippet
+
+# enumeration
+snippet enuma "enumerate" ba
 \begin{enumerate}[label=(\alph*)]
 	\item$0
 \end{enumerate}
@@ -1115,12 +1123,12 @@ snippet cc "subset" Ai
 endsnippet
 
 context "math()"
-snippet cC "subset" Ai
+snippet cC "supset" Ai
 \supset $0
 endsnippet
 
 context "math()"
-snippet cq "subset" Ai
+snippet cq "subseteq" Ai
 \subseteq $0
 endsnippet
 
