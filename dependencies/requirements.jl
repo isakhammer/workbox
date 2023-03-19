@@ -2,6 +2,7 @@ using Pkg
 Pkg.add([
 "LanguageServer",
 "FromFile",
+"PROPACK",
 "BenchmarkTools",
 "DifferentialEquations",
 "ParameterizedFunctions",
