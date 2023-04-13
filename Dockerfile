@@ -163,6 +163,9 @@ RUN nvim --headless +PlugInstall +qall
 # RUN nvim +'CocCommand julia.CompileLanguageServerSysimg' +qall
 
 
+# Utilities
+RUN apt-get install -yq inkscape
+
 # FEM libraries
 RUN apt-get install -yq paraview gmsh
 
