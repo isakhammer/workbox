@@ -35,12 +35,12 @@ RUN apt-get install -yq xorg-dev mesa-utils \
 RUN apt-get install -yq jabref
 
 # VSCODE
-RUN wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | apt-key add -
-RUN add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
-RUN apt-get -yq install code
-RUN code --install-extension  --user-data-dir="~/.vscode-root" \
-                                James-Yu.latex-workshop \
-                                streetsidesoftware.code-spell-checker
+#RUN wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | apt-key add -
+#RUN add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+#RUN apt-get -yq install code
+#RUN code --install-extension  --user-data-dir="~/.vscode-root" \
+#                                James-Yu.latex-workshop \
+#                                streetsidesoftware.code-spell-checker
 
 
 # Dependencie in ubuntu for vimtex -> zathura interface
