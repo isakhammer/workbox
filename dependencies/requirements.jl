@@ -32,6 +32,6 @@ Pkg.add([
 "CairoMakie",
 "Pluto",
 "Makie",
-#"PGFPlotsX",
+"PGFPlotsX",
 "FileIO"])
 
