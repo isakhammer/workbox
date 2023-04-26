@@ -24,7 +24,7 @@ export KEYTIMEOUT=1
 alias c="clear"
 alias vim="nvim"
 alias v="nvim"
-alias j="julia"
+alias j="julia --optimize=1"
 alias j1="julia --optimize=1"
 alias j2="julia --optimize=2"
 alias j3="julia --optimize=3"
