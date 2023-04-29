@@ -91,10 +91,11 @@ RUN echo "source ${WORKBOX_DIR}/common_scripts.sh" >> /root/.bashrc
 RUN pip3 install -r $DEP_DIR/requirements.txt
 
 # Jupyter installations
-RUN jupyter nbextension install --user --py widgetsnbextension
-RUN jupyter nbextension enable --user --py widgetsnbextension
-RUN jupyter nbextension install --user --py webgui_jupyter_widgets
-RUN jupyter nbextension enable --user --py webgui_jupyter_widgets
+# buggy
+# RUN jupyter nbextension install --user --py widgetsnbextension
+# RUN jupyter nbextension enable --user --py widgetsnbextension
+# RUN jupyter nbextension install --user --py webgui_jupyter_widgets
+# RUN jupyter nbextension enable --user --py webgui_jupyter_widgets
 
 # Standard ngsolve installation
 # Might want to consider pip3 install NGsolve
