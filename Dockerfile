@@ -126,8 +126,8 @@ RUN apt-get install -yq xdotool # for vimtex-zathura interface
 RUN apt-get install -yq tmux
 RUN ln -s $CONFIG_DIR/tmux.conf ~/.tmux.conf
 
-# Julia
-# download and install Julia
+## Julia
+## download and install Julia
 RUN wget https://julialang-s3.julialang.org/bin/linux/x64/1.9/julia-1.9.0-linux-x86_64.tar.gz \
     && tar -xzf julia-1.9.0-linux-x86_64.tar.gz \
     && rm julia-1.9.0-linux-x86_64.tar.gz
