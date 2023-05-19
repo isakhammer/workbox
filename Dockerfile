@@ -130,8 +130,9 @@ RUN ln -s $CONFIG_DIR/tmux.conf ~/.tmux.conf
 # download and install Julia
 RUN wget https://julialang-s3.julialang.org/bin/linux/x64/1.9/julia-1.9.0-linux-x86_64.tar.gz \
     && tar -xzf julia-1.9.0-linux-x86_64.tar.gz \
-    && rm julia-1.9.0-linux-x86_64.tar.gz \
-    && ln -s /julia-1.9.0/bin/julia /usr/local/bin/julia
+    && rm julia-1.9.0-linux-x86_64.tar.gz
+ENV PATH="/julia-1.9.0/bin:${PATH}"
+
 # RUN apt-get install -yq julia
 RUN julia -e 'using Pkg; Pkg.add(["UpdateJulia"])'
 RUN julia -e 'using UpdateJulia; update_julia() '
