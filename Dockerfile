@@ -127,13 +127,18 @@ RUN apt-get install -yq tmux
 RUN ln -s $CONFIG_DIR/tmux.conf ~/.tmux.conf
 
 ## Julia
-## download and install Julia
-RUN wget https://julialang-s3.julialang.org/bin/linux/x64/1.9/julia-1.9.0-linux-x86_64.tar.gz \
-    && tar -xzf julia-1.9.0-linux-x86_64.tar.gz \
-    && rm julia-1.9.0-linux-x86_64.tar.gz
-ENV PATH="/julia-1.9.0/bin:${PATH}"
+## Install Juliaup
+ENV JULIA_VERSION=1.8.5
 
-# RUN apt-get install -yq julia
+RUN curl -fsSL https://install.julialang.org -o install_julia.sh \
+    && sh install_julia.sh --yes
+
+ENV PATH=/root/.juliaup/bin:$PATH
+RUN source /root/.bashrc \
+    && cat /root/.bashrc \
+    && juliaup add $JULIA_VERSION  \
+    && juliaup default $JULIA_VERSION
+
 RUN julia -e 'using Pkg; Pkg.add(["UpdateJulia"])'
 RUN julia -e 'using UpdateJulia; update_julia() '
 RUN julia $DEP_DIR/requirements.jl
