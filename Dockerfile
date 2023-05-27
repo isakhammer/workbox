@@ -139,8 +139,8 @@ RUN source /root/.bashrc \
     && juliaup add $JULIA_VERSION  \
     && juliaup default $JULIA_VERSION
 
-RUN julia -e 'using Pkg; Pkg.add(["UpdateJulia"])'
-RUN julia -e 'using UpdateJulia; update_julia() '
+# RUN julia -e 'using Pkg; Pkg.add(["UpdateJulia"])'
+# RUN julia -e 'using UpdateJulia; update_julia() '
 RUN julia $DEP_DIR/requirements.jl
 RUN mkdir -p ~/.julia/config
 RUN ln -s $CONFIG_DIR/startup.jl ~/.julia/config/startup.jl
