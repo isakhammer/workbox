@@ -14,6 +14,7 @@ Pkg.add([
 "Revise",
 "OhMyREPL",
 "CSV",
+"YAML",
 "Plots",
 "PyPlot",
 "IJulia",
