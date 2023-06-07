@@ -151,7 +151,7 @@ RUN ln -s $CONFIG_DIR/ranger ~/.config/ranger
 # NEOVIM
 RUN add-apt-repository ppa:neovim-ppa/unstable
 RUN apt-get -y update
-RUN apt-get -y install neovim
+RUN apt-get -y install neovim ripgrep
 RUN apt-get -y install curl
 RUN apt-get -y update
 
