@@ -21,7 +21,6 @@ function run_workbox_jupyter()  {
      -v $XSOCK:$XSOCK \
      -v $HOME/.ssh:/root/.ssh \
      -v $HOME/.Xauthority:/root/.Xauthority \
-#     -v $HOME/.gitconfig:/root/.gitconfig \
      -p $PORT:$PORT \
      $image_name "$@" \
      /bin/bash -c "
@@ -42,7 +41,6 @@ function run_workbox()  {
      -v $XSOCK:$XSOCK \
      -v $HOME/.ssh:/root/.ssh \
      -v $HOME/.Xauthority:/root/.Xauthority \
-#     -v $HOME/.gitconfig:/root/.gitconfig \
      $image_name "$@"
 }
 
