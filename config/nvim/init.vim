@@ -41,7 +41,7 @@ Plug 'mroavi/vim-julia-cell', { 'for': 'julia' }
 Plug 'SirVer/ultisnips' " Python3
 Plug 'lervag/vimtex' " Latexmk, zathura and texlive-most(AUR)
 Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
-" Plug 'matze/vim-tex-fold'
+Plug 'matze/vim-tex-fold'
 Plug '907th/vim-auto-save'
 
 " Appearance
@@ -288,6 +288,7 @@ let g:vimtex_view_enabled=1
 let g:vimtex_view_automatic=1
 let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
+" let g:vimtex_fold_enabled=1
 
 " main.tex system -> https://github.com/lervag/vimtex/issues/155
 au FileType tex let b:main_tex_file='main.tex'
