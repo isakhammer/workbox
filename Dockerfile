@@ -28,8 +28,10 @@ RUN apt-get -y install poppler-utils # pdftoppm and pdftocairo
 
 RUN apt-get install -yq git cmake make
 RUN apt-get install -yq bc libblas-dev liblapack-dev
-RUN apt-get install -yq xclip feh
 
+
+# Other
+RUN apt-get install -yq xclip feh
 RUN apt-get install -yq xorg-dev mesa-utils \
     xvfb libgl1 freeglut3-dev libxrandr-dev \
     libxinerama-dev libxcursor-dev libxi-dev libxext-dev
@@ -139,8 +141,6 @@ RUN source /root/.bashrc \
     && juliaup add $JULIA_VERSION  \
     && juliaup default $JULIA_VERSION
 
-# RUN julia -e 'using Pkg; Pkg.add(["UpdateJulia"])'
-# RUN julia -e 'using UpdateJulia; update_julia() '
 RUN julia $DEP_DIR/requirements.jl
 RUN mkdir -p ~/.julia/config
 RUN ln -s $CONFIG_DIR/startup.jl ~/.julia/config/startup.jl

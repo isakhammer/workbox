@@ -288,7 +288,7 @@ let g:vimtex_view_enabled=1
 let g:vimtex_view_automatic=1
 let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
-" let g:vimtex_fold_enabled=1
+let g:vimtex_fold_enabled=0
 
 " main.tex system -> https://github.com/lervag/vimtex/issues/155
 au FileType tex let b:main_tex_file='main.tex'
