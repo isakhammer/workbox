@@ -130,7 +130,8 @@ RUN ln -s $CONFIG_DIR/tmux.conf ~/.tmux.conf
 
 ## Julia
 ## Install Juliaup
-ENV JULIA_VERSION=1.9.3
+# ENV JULIA_VERSION=1.9.3
+ENV JULIA_VERSION=1.8.5
 
 RUN curl -fsSL https://install.julialang.org -o install_julia.sh \
     && sh install_julia.sh --yes
