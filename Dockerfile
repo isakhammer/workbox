@@ -35,7 +35,7 @@ RUN apt-get install -yq xclip feh
 RUN apt-get install -yq xorg-dev mesa-utils \
     xvfb libgl1 freeglut3-dev libxrandr-dev \
     libxinerama-dev libxcursor-dev libxi-dev libxext-dev
-RUN apt-get install -yq jabref
+#RUN apt-get install -yq jabref
 
 # VSCODE
 #RUN wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | apt-key add -
@@ -125,8 +125,8 @@ RUN apt-get install -yq xdotool # for vimtex-zathura interface
 
 
 # Tmux
-RUN apt-get install -yq tmux
-RUN ln -s $CONFIG_DIR/tmux.conf ~/.tmux.conf
+#RUN apt-get install -yq tmux
+#RUN ln -s $CONFIG_DIR/tmux.conf ~/.tmux.conf
 
 ## Julia
 ## Install Juliaup
@@ -178,10 +178,10 @@ RUN nvim --headless +PlugInstall +qall
 
 
 # Utilities
-RUN apt-get install -yq inkscape
+#RUN apt-get install -yq inkscape
 
 # FEM libraries
-RUN apt-get install -yq paraview gmsh
+#RUN apt-get install -yq paraview gmsh
 
 
 # For regular code
