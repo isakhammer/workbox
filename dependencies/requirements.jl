@@ -16,7 +16,7 @@ Pkg.add([
 "CSV",
 "YAML",
 "Plots",
-# "PyPlot",
+"PyPlot",
 "IJulia",
 "Distributions",
 "Gridap",
