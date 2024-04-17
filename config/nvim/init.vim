@@ -18,7 +18,7 @@ Plug 'airblade/vim-rooter'
 Plug 'kien/ctrlp.vim'
 
 " Speed
-Plug 'unblevable/quick-scope'
+"Plug 'unblevable/quick-scope'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
