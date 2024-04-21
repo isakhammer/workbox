@@ -31,7 +31,7 @@ RUN apt-get install -yq bc libblas-dev liblapack-dev
 
 
 # Other
-RUN apt-get install -yq xclip feh
+RUN apt-get install -yq xclip feh dos2unix
 RUN apt-get install -yq xorg-dev mesa-utils \
     xvfb libgl1 freeglut3-dev libxrandr-dev \
     libxinerama-dev libxcursor-dev libxi-dev libxext-dev
