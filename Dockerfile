@@ -12,7 +12,7 @@ ENV HOME_DIR /root
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update
 RUN apt-get -y upgrade
-RUN apt-get install -yq apt-utils dialog apt-transport-https wget libasound2
+RUN apt-get install -yq apt-utils dialog apt-transport-https wget libasound2t64 # regarding libasound2t64 https://github.com/cypress-io/cypress-documentation/issues/5816#issue-2268545713
 RUN apt-get install -yq build-essential software-properties-common
 RUN apt-get update
 
