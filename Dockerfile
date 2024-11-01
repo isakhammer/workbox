@@ -1,4 +1,4 @@
-FROM ubuntu:24.04
+FROM ubuntu:latest
 LABEL maintainer="Isak Hammer"
 
 SHELL ["/bin/bash", "-c"]
