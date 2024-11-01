@@ -63,7 +63,7 @@ RUN apt-get install -yq python3.13 python3.13-tk python3.13-dev
 
 # Install pip and virtual environment for Python 3.13
 RUN apt-get install -yq python3-pip python3.13-venv
-RUN /usr/bin/python3.13 -m pip install --upgrade pip
+RUN /usr/bin/python3 -m pip install --upgrade pip
 RUN pip3 install --upgrade pip
 
 
@@ -100,6 +100,12 @@ RUN pip3 install -r $DEP_DIR/requirements.txt
 
 # Jupyter installations
 # buggy
+# to work with jupyter notebooks
+RUN pip3 install --upgrade webgui_jupyter_widgets
+RUN pip3 install jupyter_contrib_nbextensions
+RUN pip3 install --upgrade notebook==6.4.12 # See https://stackoverflow.com/a/76926161
+
+RUN jupyter contrib nbextension install --user
 RUN jupyter nbextension install --user --py widgetsnbextension
 RUN jupyter nbextension enable --user --py widgetsnbextension
 RUN jupyter nbextension install --user --py webgui_jupyter_widgets
