@@ -62,9 +62,9 @@ RUN apt-get -y update
 RUN apt-get install -yq python3.13 python3.13-tk python3.13-dev
 
 # Install pip and virtual environment for Python 3.13
-RUN apt-get install -yq python3-pip python3.13-venv
-RUN /usr/bin/python3 -m pip install --upgrade pip
-RUN pip3 install --upgrade pip
+RUN apt-get install -yq python3-pip #python3.13-venv
+# RUN /usr/bin/python3 -m pip install --upgrade pip
+#RUN pip3 install --upgrade pip
 
 
 
@@ -96,14 +96,14 @@ RUN fc-cache -f -v
 RUN echo "source ${WORKBOX_DIR}/common_scripts.sh" >> /root/.bashrc
 
 # installation of python packages
-RUN pip3 install -r $DEP_DIR/requirements.txt
+RUN pip3 install -r $DEP_DIR/requirements.txt --break-system-packages
 
 # Jupyter installations
 # buggy
 # to work with jupyter notebooks
-RUN pip3 install --upgrade webgui_jupyter_widgets
-RUN pip3 install jupyter_contrib_nbextensions
-RUN pip3 install --upgrade notebook==6.4.12 # See https://stackoverflow.com/a/76926161
+RUN pip3 install --upgrade webgui_jupyter_widgets --break-system-packages
+RUN pip3 install jupyter_contrib_nbextensions --break-system-packages
+RUN pip3 install --upgrade notebook==6.4.12 --break-system-packages # See https://stackoverflow.com/a/76926161
 
 RUN jupyter contrib nbextension install --user
 RUN jupyter nbextension install --user --py widgetsnbextension
@@ -113,7 +113,7 @@ RUN jupyter nbextension enable --user --py webgui_jupyter_widgets
 
 # Standard ngsolve installation
 # Might want to consider pip3 install NGsolve
-RUN pip3 install --upgrade ngsolve xfem
+RUN pip3 install --upgrade ngsolve xfem --break-system-packages
 # RUN apt-add-repository universe
 # RUN add-apt-repository ppa:ngsolve/ngsolve
 # RUN apt-get update
