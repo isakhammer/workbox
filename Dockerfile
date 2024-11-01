@@ -59,10 +59,10 @@ RUN add-apt-repository -y ppa:deadsnakes/ppa
 RUN apt-get -y update
 
 # Install Python 3.13 and related packages
-RUN apt-get install -yq python3.13 python3.13-tk python3.13-dev
+RUN apt-get install -yq python3.12 python3.12-tk python3.12-dev
 
 # Install pip and virtual environment for Python 3.13
-RUN apt-get install -yq python3-pip #python3.13-venv
+RUN apt-get install -yq python3-pip python3.12-venv
 # RUN /usr/bin/python3 -m pip install --upgrade pip
 #RUN pip3 install --upgrade pip
 
