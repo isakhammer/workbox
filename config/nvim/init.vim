@@ -93,6 +93,10 @@ set colorcolumn=80      " color for column after 80 tegn
 set smartindent         " copy indent from current line when starting a new line
 set autochdir           " Automatically change workdir to current file
 
+" Avoid unnecessary whitespace indentation
+set noautoindent
+set nosmartindent
+set nocindent
 """""""
 " BASICS
 """""""
@@ -123,7 +127,7 @@ set number relativenumber
 set wildmode=longest,list,full
 
 " Disables automatic commenting on newline:
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+" autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " which is non-retarded, unlike vim defaults.
 set splitbelow splitright
@@ -173,7 +177,8 @@ nmap <leader>h :bp <CR>
 cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 
 " Automatically deletes all trailing whitespace and newlines at end of file on save.
-autocmd BufWritePre * %s/\s\+$//e
+" autocmd BufWritePre * %s/\s\+$//e
+
 set splitright
 
  " Spelling correction when pressing ctrl L
