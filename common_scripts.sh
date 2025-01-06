@@ -99,6 +99,7 @@ alias gp="git push origin HEAD"
 alias gpu="git pull"
 alias sgg="set_git_global_user"
 
+alias lmk="latexmk -pdf"
 # Sample prompt declaration based off of the default Ubuntu 14.04.1 color
 # prompt. Tweak as you see fit, or just stick "$(git_prompt)" into your
 # favorite prompt.
