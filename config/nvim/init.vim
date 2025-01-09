@@ -296,7 +296,7 @@ let g:vimtex_quickfix_mode=0
 let g:vimtex_fold_enabled=0
 
 " main.tex system -> https://github.com/lervag/vimtex/issues/155
-au FileType tex let b:main_tex_file='main.tex'
+" au FileType tex let b:main_tex_file='paper.tex'
 
 
 " Clean directory of generated files
