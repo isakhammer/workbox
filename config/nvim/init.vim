@@ -179,6 +179,16 @@ cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 " Automatically deletes all trailing whitespace and newlines at end of file on save.
 " autocmd BufWritePre * %s/\s\+$//e
 
+function! ConvertToUnix()
+  " Reopen the file in DOS file format
+  execute 'e ++ff=dos'
+
+  " Set the file format to Unix
+  set ff=unix
+
+endfunction
+
+
 set splitright
 
  " Spelling correction when pressing ctrl L
