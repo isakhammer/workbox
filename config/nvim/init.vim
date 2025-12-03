@@ -201,6 +201,8 @@ set spellfile+=~/workbox/config/nvim/spell/en.utf-8.add
 " hi SpellBad cterm=underline
 
 set spelllang=en
+
+map <leader>nb :set spelllang=nb
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
