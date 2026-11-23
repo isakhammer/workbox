@@ -193,6 +193,8 @@ set splitright
 
  " Spelling correction when pressing ctrl L
 " setlocal spell
+" Use the bundled dictionaries across disposable Workbox containers.
+execute 'set runtimepath^=' . fnameescape(expand('<sfile>:p:h'))
 set spell
 set spellfile+=~/workbox/config/nvim/spell/en.utf-8.add
 
