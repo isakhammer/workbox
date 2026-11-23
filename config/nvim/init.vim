@@ -202,6 +202,7 @@ set spellfile+=~/workbox/config/nvim/spell/en.utf-8.add
 
 set spelllang=en
 
+" Norwegian
 map <leader>nb :set spelllang=nb
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
