@@ -22,7 +22,8 @@ export LESSCHARSET=utf-8
 set -o vi
 export KEYTIMEOUT=1
 alias c="clear"
-alias vim="nvim"
+# Give each editor its own D-Bus session for VimTeX and Zathura.
+alias vim="dbus-run-session -- nvim"
 alias v="nvim"
 alias j="julia --optimize=1"
 alias jp="julia --optimize=1 --project=@."
