@@ -157,11 +157,22 @@ RUN ln -s $CONFIG_DIR/startup.jl ~/.julia/config/startup.jl
 RUN ln -s $CONFIG_DIR/ranger ~/.config/ranger
 
 # NEOVIM
-RUN add-apt-repository ppa:neovim-ppa/unstable
-RUN apt-get -y update
-RUN apt-get -y install neovim ripgrep
-RUN apt-get -y install curl
-RUN apt-get -y update
+# Use the official pinned release instead of Launchpad's daily builds.
+ARG NVIM_VERSION=v0.12.0
+RUN apt-get update && apt-get install -y ripgrep \
+    && case "$(dpkg --print-architecture)" in \
+         amd64) nvim_arch=x86_64; nvim_sha256=160b69125defb16e60b283b69be112fd4850d67ac8f9a752328c20ad43ec34af ;; \
+         arm64) nvim_arch=arm64; nvim_sha256=89024e7be2ef3c8f08e9c002b1eb3e3b36672ee44bd6343cf2d168d38b3736b2 ;; \
+         *) echo "Unsupported Neovim architecture" >&2; exit 1 ;; \
+       esac \
+    && curl -fL --retry 5 --retry-all-errors \
+       "https://github.com/neovim/neovim/releases/download/${NVIM_VERSION}/nvim-linux-${nvim_arch}.tar.gz" \
+       -o /tmp/nvim.tar.gz \
+    && echo "$nvim_sha256  /tmp/nvim.tar.gz" | sha256sum --check \
+    && mkdir -p /opt/nvim \
+    && tar -xzf /tmp/nvim.tar.gz --strip-components=1 -C /opt/nvim \
+    && ln -s /opt/nvim/bin/nvim /usr/local/bin/nvim \
+    && rm /tmp/nvim.tar.gz
 
 ARG NODE_VERSION=16
 RUN apt-get update -y && \
