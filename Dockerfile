@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:24.04
 LABEL maintainer="Isak Hammer"
 
 SHELL ["/bin/bash", "-c"]
@@ -24,7 +24,7 @@ RUN apt-get -y install lsb-release
 RUN apt-get -y install ca-certificates
 RUN apt-get -y install gcc g++ make
 RUN apt-get -y install openjdk-11-jdk
-RUN apt-get -y install poppler-utils # pdftoppm and pdftocairo
+RUN apt-get -y install poppler-utils file # PDF previews and file type detection
 
 RUN apt-get install -yq git cmake make
 RUN apt-get install -yq bc libblas-dev liblapack-dev
@@ -54,17 +54,11 @@ RUN apt-get install -yq dbus-x11
 RUN apt-get install -yq libfreetype6-dev libxft-dev
 
 
-# Use the deadsnakes PPA to install Python 3.13
-RUN add-apt-repository -y ppa:deadsnakes/ppa
-RUN apt-get -y update
-
-# Install Python 3.13 and related packages
+# Ubuntu 24.04 provides Python 3.12 without a third-party PPA.
 RUN apt-get install -yq python3.12 python3.12-tk python3.12-dev
 
-# Install pip and virtual environment for Python 3.13
+# Install pip and virtual environment support for Python 3.12.
 RUN apt-get install -yq python3-pip python3.12-venv
-# RUN /usr/bin/python3 -m pip install --upgrade pip
-#RUN pip3 install --upgrade pip
 
 
 
