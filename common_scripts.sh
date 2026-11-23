@@ -11,7 +11,13 @@ shopt -s expand_aliases # expand aliases
 
 export EDITOR="nvim"
 export READER="zathura"
-export XDG_RUNTIME_DIR="~/.xdg_runtime_dir"
+if [[ ! -d "${XDG_RUNTIME_DIR:-}" ]]; then
+    export XDG_RUNTIME_DIR="/tmp/workbox-runtime-$UID"
+    mkdir -p -m 700 "$XDG_RUNTIME_DIR"
+fi
+if [[ "${TERM:-}" == "xterm-kitty" ]] && ! infocmp xterm-kitty >/dev/null 2>&1; then
+    tic -x -o "$HOME/.terminfo" "$WORKBOX_DIR/config/kitty.terminfo"
+fi
 export JULIA_NUM_THREADS=8
 
 # Unicode in git diff

@@ -13,6 +13,60 @@ from ranger.core.loader import CommandLoader
 
 # You can import any python module as needed.
 import os
+import re
+import select
+import time
+import ranger.api
+from ranger.ext.img_display import (
+    ImageDisplayError, KittyImageDisplayer, register_image_displayer,
+)
+
+
+@register_image_displayer('kitty')
+class WorkboxKittyImageDisplayer(KittyImageDisplayer):
+    def _late_init(self):
+        super()._late_init()
+        if self.pix_row and self.pix_col:
+            return
+
+        # Docker keeps the terminal rows/columns but drops its pixel size.
+        # Ask Kitty for the text area's pixel dimensions over the same PTY.
+        self.stdbout.write(b'\x1b[14t')
+        self.stdbout.flush()
+        response = b''
+        deadline = time.monotonic() + 2
+        while time.monotonic() < deadline:
+            if not select.select([self.stdbin], [], [], max(0, deadline - time.monotonic()))[0]:
+                break
+            chunk = os.read(self.stdbin.fileno(), 1)
+            if not chunk:
+                break
+            response += chunk
+            match = re.search(rb'\x1b\[4;(\d+);(\d+)t', response)
+            if match:
+                columns, rows = os.get_terminal_size(self.stdbout.fileno())
+                self.pix_row = int(match.group(2)) // columns
+                self.pix_col = int(match.group(1)) // rows
+                if self.pix_row and self.pix_col:
+                    return
+                break
+        raise ImageDisplayError('Kitty did not report a usable terminal pixel size')
+
+_previous_hook_init = ranger.api.hook_init
+
+
+def workbox_hook_init(fm):
+    _previous_hook_init(fm)
+    # Ranger disables these after rc.conf when Workbox runs as root.
+    if fm.username == 'root':
+        fm.settings.preview_script = fm.confpath('scope.sh')
+        fm.settings.preview_files = True
+        fm.settings.use_preview_script = True
+    if fm.settings.preview_images_method == 'kitty' and 'kitty' not in os.environ.get('TERM', ''):
+        fm.settings.preview_images = False
+
+
+ranger.api.hook_init = workbox_hook_init
 
 # Any class that is a subclass of "Command" will be integrated into ranger as a
 # command.  Try typing ":my_edit<ENTER>" in ranger!
@@ -75,12 +129,12 @@ class fzf_select(Command):
         import subprocess
         if self.quantifier:
             # match only directories
-            command="find -L . \( -path '*/\.*' -o -fstype 'dev' -o -fstype 'proc' \) -prune \
-            -o -type d -print 2> /dev/null | sed 1d | cut -b3- | fzf +m"
+            command = (r"find -L . \( -path '*/\.*' -o -fstype 'dev' -o -fstype 'proc' \) -prune "
+                       "-o -type d -print 2> /dev/null | sed 1d | cut -b3- | fzf +m")
         else:
             # match files and directories
-            command="find -L . \( -path '*/\.*' -o -fstype 'dev' -o -fstype 'proc' \) -prune \
-            -o -print 2> /dev/null | sed 1d | cut -b3- | fzf +m"
+            command = (r"find -L . \( -path '*/\.*' -o -fstype 'dev' -o -fstype 'proc' \) -prune "
+                       "-o -print 2> /dev/null | sed 1d | cut -b3- | fzf +m")
         fzf = self.fm.execute_command(command, stdout=subprocess.PIPE)
         stdout, stderr = fzf.communicate()
         if fzf.returncode == 0:
@@ -131,12 +185,12 @@ class fzf_bring(Command):
         import shutil
         if self.quantifier:
             # match only directories
-            command="find -L . \( -path '*/\.*' -o -fstype 'dev' -o -fstype 'proc' \) -prune \
-            -o -type d -print 2> /dev/null | sed 1d | cut -b3- | fzf +m"
+            command = (r"find -L . \( -path '*/\.*' -o -fstype 'dev' -o -fstype 'proc' \) -prune "
+                       "-o -type d -print 2> /dev/null | sed 1d | cut -b3- | fzf +m")
         else:
             # match files and directories
-            command="find -L . \( -path '*/\.*' -o -fstype 'dev' -o -fstype 'proc' \) -prune \
-            -o -print 2> /dev/null | sed 1d | cut -b3- | fzf +m"
+            command = (r"find -L . \( -path '*/\.*' -o -fstype 'dev' -o -fstype 'proc' \) -prune "
+                       "-o -print 2> /dev/null | sed 1d | cut -b3- | fzf +m")
         fzf = self.fm.execute_command(command, stdout=subprocess.PIPE)
         stdout, stderr = fzf.communicate()
         if fzf.returncode == 0:

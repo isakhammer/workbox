@@ -15,6 +15,7 @@ function run_workbox_jupyter()  {
   XSOCK=/tmp/.X11-unix
   docker run -it --rm \
      -e DISPLAY=$DISPLAY \
+     -e TERM="${TERM:-xterm-256color}" \
      --privileged \
      -v $(pwd)/:/root/code \
      -v $WORKBOX_DIR/:/root/workbox \
@@ -35,6 +36,7 @@ function run_workbox()  {
   XSOCK=/tmp/.X11-unix
   docker run -it --rm \
      -e DISPLAY=$DISPLAY \
+     -e TERM="${TERM:-xterm-256color}" \
      --privileged \
      -v $(pwd)/:/root/code \
      -v $WORKBOX_DIR/:/root/workbox \

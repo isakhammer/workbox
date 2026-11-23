@@ -29,7 +29,28 @@ preview_images="$5"  # "True" if image previews are enabled, "False" otherwise.
 maxln=200    # Stop after $maxln lines.  Can be used like ls | head -n $maxln
 
 # Find out something about the file:
-mimetype=$(file --mime-type -Lb "$path")
+if command -v file >/dev/null 2>&1; then
+    mimetype=$(file --mime-type -Lb "$path")
+else
+    # Older Workbox images lack file(1); use the Python already in the image.
+    mimetype=$(python3 - "$path" <<'PY'
+import mimetypes
+import sys
+
+path = sys.argv[1]
+kind = mimetypes.guess_type(path)[0]
+if kind is None:
+    with open(path, 'rb') as source:
+        sample = source.read(8192)
+    try:
+        sample.decode('utf-8')
+        kind = 'application/octet-stream' if b'\0' in sample else 'text/plain'
+    except UnicodeDecodeError:
+        kind = 'application/octet-stream'
+print(kind)
+PY
+    )
+fi
 extension=$(/bin/echo "${path##*.}" | awk '{print tolower($0)}')
 
 # Functions:
@@ -77,9 +98,11 @@ case "$extension" in
         try 7z -p l "$path" && { dump | trim; exit 0; } || exit 1;;
     # PDF documents:
     pdf)
-	try pdftoppm -jpeg -singlefile "$path" "${cached//.jpg}" && exit 6 || exit 1;;
-        #try pdftotext -l 10 -nopgbrk -q "$path" - && \
-            #{ dump | trim | fmt -s -w $width; exit 0; } || exit 1;;
+        if [ "$preview_images" = "True" ]; then
+            try pdftoppm -f 1 -l 1 -scale-to 1600 -jpeg -singlefile "$path" "${cached%.jpg}" && exit 6
+        fi
+        try pdftotext -f 1 -l 1 -nopgbrk -q "$path" - && \
+            { dump | trim | fmt -s -w "$width"; exit 0; } || exit 1;;
     # BitTorrent Files
     torrent)
         try transmission-show "$path" && { dump | trim; exit 5; } || exit 1;;
@@ -104,8 +127,12 @@ case "$mimetype" in
             pygmentize_format=terminal
             highlight_format=ansi
         fi
-        try safepipe highlight --out-format=${highlight_format} "$path" && { dump | trim; exit 5; }
-        try safepipe pygmentize -f ${pygmentize_format} "$path" && { dump | trim; exit 5; }
+        if command -v highlight >/dev/null 2>&1; then
+            try safepipe highlight --out-format=${highlight_format} "$path" && { dump | trim; exit 5; }
+        fi
+        if command -v pygmentize >/dev/null 2>&1; then
+            try safepipe pygmentize -f ${pygmentize_format} "$path" && { dump | trim; exit 5; }
+        fi
         exit 2;;
     # Ascii-previews of images:
     image/*)

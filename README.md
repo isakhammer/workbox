@@ -32,6 +32,16 @@ cd $PATH_TO_WORKBOX_REPO/template # Changing directory to some example project, 
 workbox # Starting an instance of the workbox.
 ```
 
+For graphical PDF previews, use Kitty as your terminal and start Workbox normally.
+Run `r` inside it and move between PDF files with `j` and `k` to see the first
+page in Ranger's preview pane. Everything stays in the same terminal. The Kitty
+terminal description is bundled and loaded automatically in new containers.
+After configuration changes, restart Workbox to reload its shell settings.
+
+## TODO
+
+- [ ] Add next/previous page controls to Ranger's graphical PDF preview.
+
 ## Further Notes
 - The repo should be forked and personalized.
 - The most optimized workflow is to let Github Actions build the Dockerfile automatically and then push the latest image to your personal Docker Hub, which you then can pull whenever you want. You can check out how to do this in my workflow yaml file [here](https://github.com/isakhammer/workbox/blob/master/.github/workflows/docker-image.yml) which automatically is pushing the latest successful build to my personal [hub](https://hub.docker.com/r/isakhammer/workbox).
