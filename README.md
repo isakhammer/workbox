@@ -19,28 +19,60 @@ Anyhow, I started to find this docker environment useful for daily workflow, hen
 ## How to run Workbox
 You need to have docker installed, see [link](https://docs.docker.com/desktop/install/linux-install/).
 
-Then modify and apply the following script:
+Clone the repository, then keep the shared links in your existing host setup:
 
 ```
-# Installation
-PATH_TO_WORKBOX_REPO="$HOME/workbox"
-git clone https://github.com/isakhammer/workbox.git ~/workbox # Even better if this is your fork
-echo 'alias workbox="bash ${PATH_TO_WORKBOX_REPO}/run_workbox.sh"' >> $HOME/.bashrc && source ~/.bashrc
-
-# Quick start
-cd $PATH_TO_WORKBOX_REPO/template # Changing directory to some example project, here we do the template.
-workbox # Starting an instance of the workbox.
+git clone https://github.com/isakhammer/workbox.git ~/work/workbox
 ```
+
+Add this compact block to `~/.bashrc-personal` (adjust the checkout path if needed):
+
+```bash
+# Define Workbox symlinks (Ranger and Zathura).
+if [[ -f "$HOME/work/workbox/symlink_host.sh" ]] &&
+   bash "$HOME/work/workbox/symlink_host.sh" >/dev/null; then
+    source "$HOME/.config/ranger/shell.sh"
+fi
+```
+
+Reload your existing host setup:
+
+```bash
+source ~/.bashrc-personal
+cd ~/work/workbox/template
+wb
+```
+
+The symlink script creates `wb`/`workbox` and `wb-zathura` in
+`~/.local/bin`, plus the shared Ranger, Kitty and Zathura configuration.
+The shared Ranger shell file defines `r` and adds `~/.local/bin` to `PATH`.
+Existing files are backed up under
+`~/.local/state/workbox/backups/`. Running it again keeps links already in place.
+Docker must be running and accessible to your user (`docker info`).
+
+Use `./symlink_host.sh --dry-run` to inspect the links first, or `--home DIRECTORY`
+to stage them in another directory.
+Install dependencies separately through your package manager. Host previews use
+Kitty, Ranger, Zathura with a PDF plugin, Poppler, Pillow and Pygments; Zathura
+navigation also uses `gdbus` and `xdotool`.
 
 For graphical PDF previews, use Kitty as your terminal and start Workbox normally.
 Run `r` inside it and move between PDF files with `j` and `k` to see the first
 page in Ranger's preview pane. Everything stays in the same terminal. The Kitty
 terminal description is bundled and loaded automatically in new containers.
 After configuration changes, restart Workbox to reload its shell settings.
+When launched with `r`, quitting Ranger leaves the shell in the last directory
+you visited in Ranger.
+To share the configuration with host Ranger, back up `~/.config/ranger` and
+symlink it to this repository's `config/ranger` directory. Both then use the
+same key bindings, preview scripts, and shell integration.
 
-## TODO
-
-- [ ] Add next/previous page controls to Ranger's graphical PDF preview.
+With the shared Zathura configuration, `n` opens the next PDF in the current document's
+folder and `p` opens the previous one, in the same window. Files are sorted
+naturally by filename and navigation wraps at the ends. Printing is `Ctrl+p`.
+After `n`, Zathura also runs `a` to fit the whole page in the window.
+Type `se` (without a colon) to edit `zathurarc` in Neovim in a terminal window.
+The former `s` (fit-to-width) action is available as `sw`.
 
 ## Further Notes
 - The repo should be forked and personalized.

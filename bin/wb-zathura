@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+workbox_root=$(dirname -- "$(dirname -- "$(readlink -f -- "${BASH_SOURCE[0]}")")")
+case "${1:-}" in
+    next|previous)
+        exec python3 "$workbox_root/config/zathura-pdf-neighbor.py" "$1"
+        ;;
+    edit)
+        if command -v kitty >/dev/null 2>&1; then
+            exec kitty --title Zathura-config dbus-run-session -- nvim "$workbox_root/config/zathurarc"
+        fi
+        exec urxvt -title Zathura-config -fn xft:monospace:size=12 \
+            -e dbus-run-session -- nvim "$workbox_root/config/zathurarc"
+        ;;
+    *)
+        echo 'Usage: wb-zathura next|previous|edit' >&2
+        exit 2
+        ;;
+esac

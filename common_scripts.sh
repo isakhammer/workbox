@@ -11,6 +11,10 @@ shopt -s expand_aliases # expand aliases
 
 export EDITOR="nvim"
 export READER="zathura"
+case ":$PATH:" in
+    *":$WORKBOX_DIR/bin:"*) ;;
+    *) export PATH="$WORKBOX_DIR/bin:$PATH" ;;
+esac
 if [[ ! -d "${XDG_RUNTIME_DIR:-}" ]]; then
     export XDG_RUNTIME_DIR="/tmp/workbox-runtime-$UID"
     mkdir -p -m 700 "$XDG_RUNTIME_DIR"
@@ -43,7 +47,7 @@ alias pbg="paraview &>/dev/null &"
 alias so="source ~/.bashrc"
 alias f="fg"
 alias w="cd ~/workbox"
-alias r="ranger"
+source "$WORKBOX_DIR/config/ranger/shell.sh"
 alias e="exit"
 
 alias juplab="jupyter-lab --ip 0.0.0.0 --port 8888 --allow-root"

@@ -14,16 +14,16 @@ function run_workbox_jupyter()  {
   xhost +local:root
   XSOCK=/tmp/.X11-unix
   docker run -it --rm \
-     -e DISPLAY=$DISPLAY \
+     -e DISPLAY="$DISPLAY" \
      -e TERM="${TERM:-xterm-256color}" \
      --privileged \
-     -v $(pwd)/:/root/code \
-     -v $WORKBOX_DIR/:/root/workbox \
-     -v $XSOCK:$XSOCK \
-     -v $HOME/.ssh:/root/.ssh \
-     -v $HOME/.Xauthority:/root/.Xauthority \
+     -v "$PWD/:/root/code" \
+     -v "$WORKBOX_DIR/:/root/workbox" \
+     -v "$XSOCK:$XSOCK" \
+     -v "$HOME/.ssh:/root/.ssh" \
+     -v "$HOME/.Xauthority:/root/.Xauthority" \
      -p $PORT:$PORT \
-     $image_name "$@" \
+     "$image_name" "$@" \
      /bin/bash -c "
         jupyter-lab --ip 0.0.0.0 --port $PORT --allow-root
        "
@@ -35,19 +35,22 @@ function run_workbox()  {
   xhost +local:root
   XSOCK=/tmp/.X11-unix
   docker run -it --rm \
-     -e DISPLAY=$DISPLAY \
+     -e DISPLAY="$DISPLAY" \
      -e TERM="${TERM:-xterm-256color}" \
      --privileged \
-     -v $(pwd)/:/root/code \
-     -v $WORKBOX_DIR/:/root/workbox \
-     -v $XSOCK:$XSOCK \
-     -v $HOME/.ssh:/root/.ssh \
-     -v $HOME/.Xauthority:/root/.Xauthority \
-     $image_name "$@"
+     -v "$PWD/:/root/code" \
+     -v "$WORKBOX_DIR/:/root/workbox" \
+     -v "$XSOCK:$XSOCK" \
+     -v "$HOME/.ssh:/root/.ssh" \
+     -v "$HOME/.Xauthority:/root/.Xauthority" \
+     "$image_name" "$@"
 }
 
 
-if [ $# -eq 0 ]; then
+if [[ "${1:-}" == "--help" || "${1:-}" == "-h" ]]; then
+    echo 'Usage: wb [local|jupyter]'
+    echo 'Start Workbox in the current directory, optionally using the local image or Jupyter.'
+elif [ $# -eq 0 ]; then
     echo_color "Using docker image: isakhammer/workbox:latest"
     run_workbox
 elif [[ $1 == "local" ]]; then

@@ -66,4 +66,9 @@ map R rotate
 map K zoom in
 map J zoom out
 map i recolor
-map p print
+map n exec "wb-zathura next"
+map p exec "wb-zathura previous"
+map <C-p> print
+unmap s
+map sw adjust_window width
+map se exec "wb-zathura edit"
