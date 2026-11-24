@@ -40,7 +40,8 @@ Plug 'mroavi/vim-julia-cell', { 'for': 'julia' }
 
 " Latex
 Plug 'SirVer/ultisnips' " Python3
-Plug 'lervag/vimtex' " Latexmk, zathura and texlive-most(AUR)
+" Keep VimTeX and the Neovim version in Dockerfile compatible when updating.
+Plug 'lervag/vimtex', {'tag': 'v2.18'} " Latexmk, zathura and texlive-most(AUR)
 Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
 Plug 'matze/vim-tex-fold'
 Plug '907th/vim-auto-save'

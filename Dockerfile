@@ -6,67 +6,31 @@ SHELL ["/bin/bash", "-c"]
 ENV TZ=Europe/Oslo
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-ENV HOME_DIR /root
+ENV HOME_DIR=/root
 
-# ESSENTIAL
+# Terminal editing, PDF viewing, and Python.
 ARG DEBIAN_FRONTEND=noninteractive
-RUN apt-get update
-RUN apt-get -y upgrade
-RUN apt-get install -yq apt-utils dialog apt-transport-https wget libasound2t64 # regarding libasound2t64 https://github.com/cypress-io/cypress-documentation/issues/5816#issue-2268545713
-RUN apt-get install -yq build-essential software-properties-common
-RUN apt-get update
-
-# potential dependencies
-RUN apt-get -y install curl snapd
-RUN apt-get -y install dirmngr
-RUN apt-get -y install apt-transport-https lsb-release
-RUN apt-get -y install lsb-release
-RUN apt-get -y install ca-certificates
-RUN apt-get -y install gcc g++ make
-RUN apt-get -y install openjdk-11-jdk
-RUN apt-get -y install poppler-utils file # PDF previews and file type detection
-
-RUN apt-get install -yq git cmake make
-RUN apt-get install -yq bc libblas-dev liblapack-dev
-
-
-# Other
-RUN apt-get install -yq xclip feh dos2unix
-RUN apt-get install -yq xorg-dev mesa-utils \
-    xvfb libgl1 freeglut3-dev libxrandr-dev \
-    libxinerama-dev libxcursor-dev libxi-dev libxext-dev
-#RUN apt-get install -yq jabref
-
-# VSCODE
-#RUN wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | apt-key add -
-#RUN add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
-#RUN apt-get -yq install code
-#RUN code --install-extension  --user-data-dir="~/.vscode-root" \
-#                                James-Yu.latex-workshop \
-#                                streetsidesoftware.code-spell-checker
-
-
-# Dependencie in ubuntu for vimtex -> zathura interface
-RUN apt-get install -yq dbus-x11
-
-# Deep bug somwhere when installing matplotlib on ubuntu20
-# https://stackoverflow.com/questions/25674612/ubuntu-14-04-pip-cannot-upgrade-matplotllib
-RUN apt-get install -yq libfreetype6-dev libxft-dev
-
-
-# Ubuntu 24.04 provides Python 3.12 without a third-party PPA.
-RUN apt-get install -yq python3.12 python3.12-tk python3.12-dev
-
-# Install pip and virtual environment support for Python 3.12.
-RUN apt-get install -yq python3-pip python3.12-venv
-
-
+ARG WORKBOX_EXTRAS=0
+ENV PIP_NO_CACHE_DIR=1
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+         ca-certificates curl git ripgrep fzf fontconfig \
+         python3 python3-pip python3-venv \
+         dbus-x11 libglib2.0-bin xclip xdotool xauth ncurses-bin \
+         poppler-utils file zathura zathura-pdf-poppler \
+         latexmk biber pandoc texlive-latex-extra texlive-bibtex-extra \
+         texlive-fonts-recommended texlive-lang-european texlive-science cm-super-minimal \
+    && if [ "$WORKBOX_EXTRAS" = 1 ]; then \
+         apt-get install -y texlive-full build-essential cmake bc libblas-dev liblapack-dev \
+           python3-dev python3-tk libgl1 libglu1-mesa libxmu6 libxi6; \
+       fi \
+    && rm -rf /var/lib/apt/lists/*
 
 # Create workbox folder and environment variables
 RUN mkdir -p $HOME_DIR/workbox
-ENV WORKBOX_DIR $HOME_DIR/workbox
-ENV CONFIG_DIR $WORKBOX_DIR/config
-ENV DEP_DIR $WORKBOX_DIR/dependencies
+ENV WORKBOX_DIR=$HOME_DIR/workbox
+ENV CONFIG_DIR=$WORKBOX_DIR/config
+ENV DEP_DIR=$WORKBOX_DIR/dependencies
 WORKDIR $WORKBOX_DIR
 RUN mkdir $HOME_DIR/.config
 
@@ -75,94 +39,48 @@ RUN mkdir $HOME_DIR/.config
 # Copy all files from host to container
 COPY . .
 
-RUN mkdir -p ~/.config/neofetch
-RUN ln -s $CONFIG_DIR/neofetch/config.conf ~/.config/neofetch/config.conf
-RUN apt-get install -yq neofetch
-
 # Installing the fonts
 ### arggh still not able to generate all fonts in julia in vim
 RUN mkdir -p $HOME_DIR/.local/share/fonts/
 RUN ln -s $DEP_DIR/JuliaMono-Regular.ttf $HOME_DIR/.local/share/fonts/
-RUN apt-get install -yq fontconfig
 RUN fc-cache -f -v
 
 # Source common_scripts into .bashrc
 RUN echo "source ${WORKBOX_DIR}/common_scripts.sh" >> /root/.bashrc
 
-# installation of python packages
-RUN pip3 install -r $DEP_DIR/requirements.txt --break-system-packages
+# Editor and Ranger dependencies, with optional scientific tools.
+RUN python3 -m pip install --break-system-packages -r "$DEP_DIR/requirements.txt" \
+    && if [ "$WORKBOX_EXTRAS" = 1 ]; then \
+         python3 -m pip install --break-system-packages numpy scipy sympy matplotlib pandas ffmpeg-python jupyterlab ipywidgets ngsolve xfem casadi autograd webgui_jupyter_widgets; \
+       fi
 
-# Jupyter installations
-# buggy
-# to work with jupyter notebooks
-RUN pip3 install --upgrade webgui_jupyter_widgets --break-system-packages
-RUN pip3 install jupyter_contrib_nbextensions --break-system-packages
-RUN pip3 install --upgrade notebook==6.4.12 --break-system-packages # See https://stackoverflow.com/a/76926161
-
-RUN jupyter contrib nbextension install --user
-RUN jupyter nbextension install --user --py widgetsnbextension
-RUN jupyter nbextension enable --user --py widgetsnbextension
-RUN jupyter nbextension install --user --py webgui_jupyter_widgets
-RUN jupyter nbextension enable --user --py webgui_jupyter_widgets
-
-# Standard ngsolve installation
-# Might want to consider pip3 install NGsolve
-RUN pip3 install --upgrade ngsolve xfem --break-system-packages
-# RUN apt-add-repository universe
-# RUN add-apt-repository ppa:ngsolve/ngsolve
-# RUN apt-get update
-# RUN apt-get install -yq ngsolve
-
-
-# LATEX
-RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
-RUN apt-get upgrade -y
-RUN apt-get install -y latexmk
-RUN apt-get install -y texlive-full
-RUN apt-get install -y biber
-RUN apt-get install -y pandoc
-RUN apt-get install -yq rxvt-unicode # display unicode in terminal
-
-
-# Zathura
-RUN apt-get -y install zathura
-RUN mkdir -p ~/.config/zathura
-RUN ln -s $CONFIG_DIR/zathurarc ~/.config/zathura/zathurarc
-RUN apt-get install -yq xdotool # for vimtex-zathura interface
-
-
-# Tmux
-#RUN apt-get install -yq tmux
-#RUN ln -s $CONFIG_DIR/tmux.conf ~/.tmux.conf
+RUN mkdir -p ~/.config/zathura \
+    && ln -s "$CONFIG_DIR/zathurarc" ~/.config/zathura/zathurarc
 
 ## Julia
 ## Install Juliaup
 # ENV JULIA_VERSION=1.9.3
 ENV JULIA_VERSION=1.8.5
 
-RUN curl -fsSL https://install.julialang.org -o install_julia.sh \
-    && sh install_julia.sh --yes
-
-ENV PATH=/root/.juliaup/bin:$PATH
-RUN source /root/.bashrc \
-    && cat /root/.bashrc \
-    && juliaup add $JULIA_VERSION  \
-    && juliaup default $JULIA_VERSION
-
-RUN julia $DEP_DIR/requirements.jl
-RUN mkdir -p ~/.julia/config
-RUN ln -s $CONFIG_DIR/startup.jl ~/.julia/config/startup.jl
+ENV PATH=/root/.local/lib/fzf/bin:/root/.juliaup/bin:$PATH
+RUN if [ "$WORKBOX_EXTRAS" = 1 ]; then \
+      curl -fsSL https://install.julialang.org -o /tmp/install_julia.sh \
+      && sh /tmp/install_julia.sh --yes --default-channel "$JULIA_VERSION" \
+      && rm /tmp/install_julia.sh \
+      && julia "$DEP_DIR/requirements.jl" \
+      && mkdir -p ~/.julia/config \
+      && ln -s "$CONFIG_DIR/startup.jl" ~/.julia/config/startup.jl; \
+    fi
 
 # Ranger
 RUN ln -s $CONFIG_DIR/ranger ~/.config/ranger
 
 # NEOVIM
 # Use the official pinned release instead of Launchpad's daily builds.
-ARG NVIM_VERSION=v0.12.0
-RUN apt-get update && apt-get install -y ripgrep \
-    && case "$(dpkg --print-architecture)" in \
-         amd64) nvim_arch=x86_64; nvim_sha256=160b69125defb16e60b283b69be112fd4850d67ac8f9a752328c20ad43ec34af ;; \
-         arm64) nvim_arch=arm64; nvim_sha256=89024e7be2ef3c8f08e9c002b1eb3e3b36672ee44bd6343cf2d168d38b3736b2 ;; \
+ARG NVIM_VERSION=v0.12.6
+RUN case "$(dpkg --print-architecture)" in \
+         amd64) nvim_arch=x86_64; nvim_sha256=474430d53e6264f6d6dd18db42d6dc9df3a1b56ca9e88a325bbf860e1a811d87 ;; \
+         arm64) nvim_arch=arm64; nvim_sha256=8f1f64a0bdb97247034038c3823c6cbad5bdf9ecd5751b85494b71c3ee04c815 ;; \
          *) echo "Unsupported Neovim architecture" >&2; exit 1 ;; \
        esac \
     && curl -fL --retry 5 --retry-all-errors \
@@ -174,17 +92,14 @@ RUN apt-get update && apt-get install -y ripgrep \
     && ln -s /opt/nvim/bin/nvim /usr/local/bin/nvim \
     && rm /tmp/nvim.tar.gz
 
-ARG NODE_VERSION=16
-RUN apt-get update -y && \
-    apt-get upgrade -y && \
-    apt-get install -y && \
-    curl -sL https://deb.nodesource.com/setup_$NODE_VERSION.x | bash - && \
-    apt-get install -y nodejs
-
 RUN mkdir -p ~/.config/nvim/ && touch ~/.config/nvim/init.vim && echo "source ${CONFIG_DIR}/nvim/init.vim" >> ~/.config/nvim/init.vim
-RUN curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+RUN curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
          https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-RUN nvim --headless +PlugInstall +qall
+RUN nvim --headless "+PlugInstall --sync" +qall
+# Fail the build if the editor and the pinned VimTeX release are incompatible.
+RUN nvim --headless /tmp/workbox-vimtex-check.tex \
+    -c "if !has('nvim-0.12.4') || !exists('b:vimtex') || maparg('<Bslash>ll', 'n') !=# '<Plug>(vimtex-compile)' || !empty(v:errmsg) | cquit | endif" \
+    -c qall
 
 # Dont forget to uncomment vimrc as well
 # RUN nvim +'CocInstall -sync coc-julia coc-jedi coc-json' +qall
@@ -204,7 +119,7 @@ RUN nvim --headless +PlugInstall +qall
 
 # For regular code
 RUN mkdir -p $HOME_DIR/code
-ENV WORK_DIR $HOME_DIR/code
+ENV WORK_DIR=$HOME_DIR/code
 WORKDIR $WORK_DIR
 
 # Source after the end of installation

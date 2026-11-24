@@ -1,27 +1,6 @@
-#vim
 pynvim
-neovim
-pyvim
 jedi
-
-# file manager
 ranger-fm
-#ueberzug # not working
-
-# Ultisnip
 unidecode
-
-# Other useful stuff
-python3-xlib
-numpy
-sympy
-matplotlib
-scipy
-jupyter
-jupyterlab
-webgui_jupyter_widgets
-casadi
-ffmpeg-python
-pandas
-autograd
-
+Pillow
+Pygments

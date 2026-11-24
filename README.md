@@ -10,8 +10,8 @@ For quite some time have I been struggling with annoyance of random issues that 
 Anyhow, I started to find this docker environment useful for daily workflow, hence the name workbox. The concept is basically to mount the docker container, with fully installed features, to your workspace repo. It is now possible to easily combine compiling any scientific latex projects, launch jupyter notebooks, run simulations and use custom vim bindings in one go.
 
 ## Main Features:
-  - [Neovim](https://github.com/neovim/neovim) with [vimtex](https://github.com/lervag/vimtex), [UltiSnips](https://github.com/SirVer/ultisnips) with custom mathematical tex snippets and the autocomplete [coc.nvim](https://github.com/neoclide/coc.nvim) and much more.
-  - Fully installed Latexmk compiler and all basic fonts packages via `texlive-full`
+  - [Neovim](https://github.com/neovim/neovim) with [vimtex](https://github.com/lervag/vimtex), [UltiSnips](https://github.com/SirVer/ultisnips) with custom mathematical tex snippets and the autocomplete [coc.nvim](https://github.com/neoclide/coc.nvim) and more.
+  - Latexmk and TeX Live packages for the bundled LaTeX template
   - [Zathura](https://github.com/pwmt/zathura) for pdf viewing and [ranger](https://github.com/ranger/ranger) for file managing.
   - Python3 and Julia installed with most packages for basic scientific programming.
   - Running Jupyter Notebooks with no problems
@@ -73,6 +73,45 @@ naturally by filename and navigation wraps at the ends. Printing is `Ctrl+p`.
 After `n`, Zathura also runs `a` to fit the whole page in the window.
 Type `se` (without a colon) to edit `zathurarc` in Neovim in a terminal window.
 The former `s` (fit-to-width) action is available as `sw`.
+
+## Updating Neovim and VimTeX
+Neovim is pinned to v0.12.6 in `Dockerfile`, with SHA-256 checksums for both
+supported architectures. VimTeX is pinned to v2.18 in `config/nvim/init.vim`.
+Update these versions together, refresh the checksums from the official Neovim
+release, and rebuild. The build checks that VimTeX loads successfully in Neovim.
+
+```bash
+cd ~/work/workbox
+bash build_workbox.sh
+```
+
+Exit the current Workbox container and run `wb local` from your document folder
+to use the rebuilt `workbox:latest` image. Plain `wb` uses
+`isakhammer/workbox:latest`; to use the local build with that command too, run:
+
+```bash
+docker tag workbox:latest isakhammer/workbox:latest
+```
+
+Restart Neovim after changing plugin versions. Existing containers retain their
+installed editor and plugins until you restart Workbox with the new image.
+
+## Optional scientific packages
+
+The standard image includes VimTeX, Zathura, Ranger, the TeX Live packages
+needed by the bundled template, and Python. Use a project virtual environment
+for additional Python packages.
+
+Build the expanded image for Julia, JupyterLab, the previous Julia package
+collection, Netgen/NGSolve, XFEM, CasADi, or full TeX Live:
+
+```bash
+docker build --build-arg WORKBOX_EXTRAS=1 -t workbox:latest .
+```
+
+Use `wb local` for the expanded image. To start its JupyterLab server, run
+`juplab` inside the container, or tag it as `isakhammer/workbox:latest` and run
+`wb jupyter`.
 
 ## Further Notes
 - The repo should be forked and personalized.
